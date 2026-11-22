@@ -1,5 +1,32 @@
 {
-  "status_ids": [],
-  "title_hashes": [],
-  "recent_titles": []
+  "status_ids": [
+    "2124464633490850164",
+    "2124469602700956103",
+    "2124470708453466534",
+    "2124471513965330608",
+    "2124471802827256253",
+    "2124474606702473263",
+    "2124475458150334900",
+    "2124477713142665551"
+  ],
+  "title_hashes": [
+    "ed2a5476377a8550",
+    "bc9e671a9428a4ea",
+    "de210560334fd93a",
+    "9c3b81518b654d39",
+    "58ad188132a582e9",
+    "43073a82e3c2dda6",
+    "8fc50d2afd3bc8c2",
+    "c3e43c1a4f6b7f74"
+  ],
+  "recent_titles": [
+    "Unequivocal super intelligence has arrived. Welcome to the Singularity.",
+    "We designed our own super precise radar system and it’s there on some X and X units, but turned off. Superhuman vision just crushes it.",
+    "Tesla real-world AI will increase in intelligence by about an order of magnitude per year",
+    "Good morning. Bloomberg on the brutal week for metal prices: “As prices broke through key levels, quantitative trend-following funds known as CTAs added to short positions, helping turn the selloff into a self-reinforcing rout.",
+    "Btw, your Tesla AI4, literally in your car, can play Diablo and get to Torment II and will probably soon reach XII",
+    "AI4 costs twice as much now due to memory and storage price hikes",
+    "It’s going to Optimus. Cars will remain at AI4. That’s enough to solve superhuman driving.",
+    "Starlink saves lives"
+  ]
 }
