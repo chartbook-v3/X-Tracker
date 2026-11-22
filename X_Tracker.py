@@ -405,6 +405,49 @@ def _get_gemini_api_key() -> str | None:
     return None
 
 
+def fetch_full_x_text(handle_low: str, status_id: str) -> str | None:
+    """Google News 245자 절단을 보완해 X 원문 전문(Full Text)을 가져옵니다 (API 키 불필요)."""
+    raw_full = ""
+    # 1순위: fxtwitter 공개 JSON API
+    try:
+        r = requests.get(
+            f"https://api.fxtwitter.com/{handle_low}/status/{status_id}",
+            headers={"User-Agent": "Mozilla/5.0"},
+            verify=False,
+            timeout=(3, 5),
+        )
+        if r.status_code == 200:
+            raw_full = (r.json().get("tweet", {}).get("text") or "").strip()
+    except Exception:
+        pass
+
+    # 2순위: X 공식 Syndication 엔드포인트 폴백
+    if not raw_full:
+        try:
+            r2 = requests.get(
+                f"https://cdn.syndication.twimg.com/tweet-result?id={status_id}&lang=en&token=4c2mmul6mnh",
+                headers={"User-Agent": "Mozilla/5.0"},
+                verify=False,
+                timeout=(3, 5),
+            )
+            if r2.status_code == 200:
+                raw_full = (r2.json().get("text") or "").strip()
+        except Exception:
+            pass
+
+    if not raw_full:
+        return None
+
+    t = html.unescape(raw_full).strip()
+    t = LEADING_MENTIONS_RE.sub("", t).strip()
+    t = re.sub(r"https?://t\.co/\S+", "", t)
+    # 문단 줄바꿈은 보존하고 불필요한 연속 공백만 정리
+    lines = [re.sub(r"[ \t]+", " ", ln).strip() for ln in t.splitlines()]
+    cleaned = "\n".join(lines)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned).strip()
+    return cleaned if len(cleaned) >= 10 else None
+
+
 def _translate_with_gemini(text: str) -> str | None:
     api_key = _get_gemini_api_key()
     if not api_key:
@@ -416,28 +459,28 @@ def _translate_with_gemini(text: str) -> str | None:
         "gemini-3-flash-preview",
     ]
     prompt = (
-        "당신은 증권사 및 테크 전문 외신 속보 데스크입니다. "
-        "다음 X(트위터) 주요 인사 게시글을 한국 텔레그램 증권 속보 채널 스타일에 맞춰 "
-        "핵심 팩트 중심의 자연스러운 한국어 1~3문장(한 문단)으로 압축 번역하세요.\n"
+        "당신은 전문 영한 번역가입니다. "
+        "다음 X(트위터) 원문을 요약하거나 생략·각색하지 말고, 원문의 모든 내용과 문단 구조를 그대로 살려 한국어로 충실하게 완역하세요.\n"
         "지침:\n"
-        "1. 부가 설명, 접두어, 줄바꿈, 바깥쪽 따옴표 없이 번역된 본문 텍스트만 출력하세요.\n"
-        "2. '~말했습니다' 대신 '~전망', '~밝혀', '~언급', '~강조', '~지적' 등 간결한 속보 문체를 사용하세요.\n"
-        "3. 원문의 숫자, 버전 번호(예: FSD V15, AI4, AI6, 25배), 금액, 비율(%)을 절대 변경하지 마세요.\n\n"
-        f"원문: {text}"
+        "1. 원문을 절대 요약하거나 문장을 빼지 말고 전문을 번역하세요.\n"
+        "2. '일론 머스크가 ~라고 언급했습니다' 같은 3인칭 보도문이나 해설을 임의로 붙이지 말고, 원문 화자의 시점과 어조를 그대로 번역하세요.\n"
+        "3. 부가 설명, 접두어, 바깥쪽 따옴표 없이 번역된 본문만 출력하세요.\n"
+        "4. 원문의 모든 숫자, 배수, 버전 번호(예: FSD V15, AI4, AI5, 12X, 28 steps), 금액, 비율(%)과 문단 줄바꿈을 100% 그대로 유지하세요.\n\n"
+        f"원문:\n{text}"
     )
     payload_fast = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
-            "temperature": 0.2,
-            "maxOutputTokens": 300,
+            "temperature": 0.1,
+            "maxOutputTokens": 1024,
             "thinkingConfig": {"thinkingBudget": 0},
         },
     }
     payload_fb = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
-            "temperature": 0.2,
-            "maxOutputTokens": 300,
+            "temperature": 0.1,
+            "maxOutputTokens": 1024,
         },
     }
 
@@ -447,20 +490,21 @@ def _translate_with_gemini(text: str) -> str | None:
             continue
         try:
             url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-            resp = requests.post(url, json=payload_fast, verify=False, timeout=(3, 6))
+            resp = requests.post(url, json=payload_fast, verify=False, timeout=(4, 10))
             if resp.status_code == 400 and "thinking" in resp.text.lower():
-                resp = requests.post(url, json=payload_fb, verify=False, timeout=(3, 6))
+                resp = requests.post(url, json=payload_fb, verify=False, timeout=(4, 10))
             if resp.status_code == 200:
                 cands = resp.json().get("candidates", [])
                 if cands:
                     for part in cands[0].get("content", {}).get("parts", []):
                         if part.get("thought"):
                             continue
-                        txt = " ".join(ln.strip() for ln in (part.get("text") or "").splitlines() if ln.strip())
-                        if len(txt) >= 2 and txt[0] == txt[-1] and txt[0] in ('"', "'"):
-                            txt = txt[1:-1].strip()
-                        if txt:
-                            return txt
+                        raw_out = (part.get("text") or "").strip()
+                        raw_out = re.sub(r"\n{3,}", "\n\n", raw_out)
+                        if len(raw_out) >= 2 and raw_out[0] == raw_out[-1] and raw_out[0] in ('"', "'"):
+                            raw_out = raw_out[1:-1].strip()
+                        if raw_out:
+                            return raw_out
             elif resp.status_code == 429:
                 _GEMINI_MODEL_COOLDOWN[model] = now + 600.0
             elif resp.status_code == 404:
@@ -636,7 +680,11 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
                 continue
 
         profile_label = X_VIP_PROFILES[handle_low]
-        text_ko = translate_to_korean(item["text_en"])
+        # Google News 245자 절단 보완: 원문 전문(Full Text) 확보 후 요약 없이 충실 완역
+        full_en = fetch_full_x_text(handle_low, sid_str) or item["text_en"]
+        text_ko = translate_to_korean(full_en)
+        if len(text_ko) > 3800:
+            text_ko = text_ko[:3800].rstrip() + "..."
 
         if send_telegram(profile_label, text_ko, final_url, dry_run=dry_run):
             hist["status_ids"].append(sid_str)
