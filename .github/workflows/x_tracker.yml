@@ -1,0 +1,50 @@
+name: X-Tracker 24/7 VIP Monitor Bot
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: x-tracker-bot
+  cancel-in-progress: false
+
+jobs:
+  run-x-tracker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run X-Tracker Bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: '@chartbooknews'
+        run: python X_Tracker.py --max-age 90
+
+      - name: Commit updated history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sent_history.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update sent_history.json [skip ci]"
+            git pull --rebase origin ${{ github.ref_name }} || true
+            git push
+          fi
