@@ -35,7 +35,7 @@ jobs:
       - name: Run X-Tracker Bot
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: '@chartbooknews'
+          TELEGRAM_CHAT_ID: '@chartbookx'
         run: python X_Tracker.py --max-age 90
 
       - name: Commit updated history
