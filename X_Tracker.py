@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 X-Tracker - 글로벌 빅테크·AI·반도체·매크로 주요 인사 44인 X(트위터) 24시간 실시간 추적 봇
-- 출력 대상: 텔레그램 채널 (@chartbooknews)
+- 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
   1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 2~3인 소그룹 분할 (Google News when:2h 정상화)
   2) 핵심 기술·시장 발언을 담은 45자 이상 '@' 답글 선택 허용 (짧은 감탄사·잡담 답글 및 'reposted' 껍데기 차단)
@@ -64,7 +64,7 @@ def load_local_env():
 load_local_env()
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "@chartbooknews").strip()
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "@chartbookx").strip()
 DEFAULT_MAX_AGE_MINUTES = 90
 MAX_SEND_PER_CYCLE = 10
 
