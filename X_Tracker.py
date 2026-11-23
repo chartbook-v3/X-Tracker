@@ -383,7 +383,7 @@ def clean_and_filter_x_text(raw_text: str) -> tuple[str, bool]:
 # ==============================================================================
 # 번역 엔진 (Gemini Flash 우선 + 무료 Google Translate 폴백)
 # ==============================================================================
-GEMINI_CIPHERTEXT_HEX = "651cfb4432c6861f71de1e590d7e9832baa8f9e3639581bd9abc11f4a12a4d34620e910b645a4cb2458baa9cd720c1ae518b641403"
+GEMINI_CIPHERTEXT_HEX = "651cfb4432c6861f71df2b24687ad702fd889fdb48ab8bb4cfa615a998362f4e6c0ce518784152805185f2a2ac17cea54b84563125"
 _GEMINI_MODEL_COOLDOWN: dict[str, float] = {}
 
 
