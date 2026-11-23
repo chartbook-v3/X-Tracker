@@ -405,8 +405,61 @@ def _get_gemini_api_key() -> str | None:
     return None
 
 
+def _extract_article_text(article: dict, max_chars: int = 4800) -> str:
+    """X Article(장문 아티클) 객체에서 제목과 본문 블록을 안전하게 추출합니다."""
+    if not isinstance(article, dict):
+        return ""
+    title = (article.get("title") or "").strip()
+    paragraphs = []
+
+    content = article.get("content")
+    if isinstance(content, dict):
+        blocks = content.get("blocks") or []
+        for blk in blocks:
+            if not isinstance(blk, dict):
+                continue
+            b_txt = (blk.get("text") or "").strip()
+            if b_txt:
+                paragraphs.append(b_txt)
+
+    if not paragraphs:
+        preview = (article.get("preview_text") or "").strip()
+        if preview:
+            paragraphs.append(preview)
+
+    if not paragraphs and not title:
+        return ""
+
+    parts = []
+    if title:
+        parts.append(f"[{title}]")
+    total_len = len(parts[0]) if parts else 0
+    truncated = False
+
+    for p in paragraphs:
+        if parts and total_len + len(p) + 2 > max_chars:
+            truncated = True
+            break
+        parts.append(p)
+        total_len += len(p) + 2
+
+    if not parts and paragraphs:
+        parts.append(paragraphs[0][:max_chars].rstrip() + "...")
+        truncated = True
+
+    result = "\n\n".join(parts).strip()
+    if truncated:
+        result += "\n\n[이하 전문은 상단 원문 링크 참고]"
+    return result
+
+
+def _strip_all_urls(text: str) -> str:
+    """본문 내 모든 URL(t.co, x.com/i/article 등)을 제거합니다."""
+    return re.sub(r"https?://\S+", "", text or "").strip()
+
+
 def fetch_full_x_text(handle_low: str, status_id: str) -> str | None:
-    """Google News 245자 절단을 보완해 X 원문 전문(Full Text)을 가져옵니다 (API 키 불필요)."""
+    """Google News 245자 절단을 보완해 X 원문 전문(일반 트윗 + X Article)을 가져옵니다 (API 키 불필요)."""
     raw_full = ""
     # 1순위: fxtwitter 공개 JSON API
     try:
@@ -417,7 +470,13 @@ def fetch_full_x_text(handle_low: str, status_id: str) -> str | None:
             timeout=(3, 5),
         )
         if r.status_code == 200:
-            raw_full = (r.json().get("tweet", {}).get("text") or "").strip()
+            tw = r.json().get("tweet") or {}
+            base_text = _strip_all_urls(tw.get("text") or "")
+            art_text = _extract_article_text(tw.get("article"))
+            if art_text:
+                raw_full = f"{base_text}\n\n{art_text}".strip() if base_text else art_text
+            else:
+                raw_full = base_text
     except Exception:
         pass
 
@@ -431,7 +490,13 @@ def fetch_full_x_text(handle_low: str, status_id: str) -> str | None:
                 timeout=(3, 5),
             )
             if r2.status_code == 200:
-                raw_full = (r2.json().get("text") or "").strip()
+                d2 = r2.json() or {}
+                base_text = _strip_all_urls(d2.get("text") or "")
+                art_text = _extract_article_text(d2.get("article"))
+                if art_text:
+                    raw_full = f"{base_text}\n\n{art_text}".strip() if base_text else art_text
+                else:
+                    raw_full = base_text
         except Exception:
             pass
 
@@ -440,7 +505,7 @@ def fetch_full_x_text(handle_low: str, status_id: str) -> str | None:
 
     t = html.unescape(raw_full).strip()
     t = LEADING_MENTIONS_RE.sub("", t).strip()
-    t = re.sub(r"https?://t\.co/\S+", "", t)
+    t = _strip_all_urls(t)
     # 문단 줄바꿈은 보존하고 불필요한 연속 공백만 정리
     lines = [re.sub(r"[ \t]+", " ", ln).strip() for ln in t.splitlines()]
     cleaned = "\n".join(lines)
@@ -448,7 +513,17 @@ def fetch_full_x_text(handle_low: str, status_id: str) -> str | None:
     return cleaned if len(cleaned) >= 10 else None
 
 
+def _has_meaningful_text(text: str) -> bool:
+    """URL을 제외한 실질적 텍스트(영문·숫자·한글)가 5자 이상 있는지 검증합니다."""
+    stripped = _strip_all_urls(text)
+    if len(stripped) < 5:
+        return False
+    return bool(re.search(r"[A-Za-z0-9\uac00-\ud7a3]", stripped))
+
+
 def _translate_with_gemini(text: str) -> str | None:
+    if not _has_meaningful_text(text):
+        return None
     api_key = _get_gemini_api_key()
     if not api_key:
         return None
@@ -463,16 +538,17 @@ def _translate_with_gemini(text: str) -> str | None:
         "다음 X(트위터) 원문을 요약하거나 생략·각색하지 말고, 원문의 모든 내용과 문단 구조를 그대로 살려 한국어로 충실하게 완역하세요.\n"
         "지침:\n"
         "1. 원문을 절대 요약하거나 문장을 빼지 말고 전문을 번역하세요.\n"
-        "2. '일론 머스크가 ~라고 언급했습니다' 같은 3인칭 보도문이나 해설을 임의로 붙이지 말고, 원문 화자의 시점과 어조를 그대로 번역하세요.\n"
+        "2. '누군가가 ~라고 언급했습니다' 같은 3인칭 보도문이나 해설을 임의로 붙이지 말고, 원문 화자의 시점과 어조를 그대로 번역하세요.\n"
         "3. 부가 설명, 접두어, 바깥쪽 따옴표 없이 번역된 본문만 출력하세요.\n"
-        "4. 원문의 모든 숫자, 배수, 버전 번호(예: FSD V15, AI4, AI5, 12X, 28 steps), 금액, 비율(%)과 문단 줄바꿈을 100% 그대로 유지하세요.\n\n"
+        "4. 원문의 모든 숫자, 배수, 버전 번호, 고유명사, 금액, 비율(%)과 문단 줄바꿈을 100% 그대로 유지하세요.\n"
+        "5. 원문에 없는 내용이나 다른 기업·제품 이야기를 절대 창작하거나 추측해 덧붙이지 마세요. 번역할 텍스트가 없거나 URL만 주어진 경우 아무 내용도 지어내지 말고 빈 문자열만 출력하세요.\n\n"
         f"원문:\n{text}"
     )
     payload_fast = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.1,
-            "maxOutputTokens": 1024,
+            "maxOutputTokens": 4096,
             "thinkingConfig": {"thinkingBudget": 0},
         },
     }
@@ -480,7 +556,7 @@ def _translate_with_gemini(text: str) -> str | None:
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.1,
-            "maxOutputTokens": 1024,
+            "maxOutputTokens": 4096,
         },
     }
 
@@ -515,6 +591,8 @@ def _translate_with_gemini(text: str) -> str | None:
 
 
 def translate_to_korean(text: str) -> str:
+    if not _has_meaningful_text(text):
+        return ""
     if len(re.findall(r"[\uac00-\ud7a3]", text)) >= 4:
         return text.strip()
     gem = _translate_with_gemini(text)
@@ -680,11 +758,19 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
                 continue
 
         profile_label = X_VIP_PROFILES[handle_low]
-        # Google News 245자 절단 보완: 원문 전문(Full Text) 확보 후 요약 없이 충실 완역
+        # Google News 245자 절단 보완: 원문 전문(일반 트윗 + X Article) 확보 후 요약 없이 충실 완역
         full_en = fetch_full_x_text(handle_low, sid_str) or item["text_en"]
+        if not _has_meaningful_text(full_en):
+            continue
         text_ko = translate_to_korean(full_en)
+        if not _has_meaningful_text(text_ko):
+            continue
         if len(text_ko) > 3800:
-            text_ko = text_ko[:3800].rstrip() + "..."
+            cut = text_ko[:3750]
+            nl_idx = cut.rfind("\n")
+            if nl_idx > 2500:
+                cut = cut[:nl_idx]
+            text_ko = cut.rstrip() + "\n\n...(이하 전문은 상단 원문 링크 참고)"
 
         if send_telegram(profile_label, text_ko, final_url, dry_run=dry_run):
             hist["status_ids"].append(sid_str)
