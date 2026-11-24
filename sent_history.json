@@ -109,7 +109,11 @@
     "2124987020464329090",
     "2125007927098699827",
     "2124980590717911527",
-    "2125025952568898001"
+    "2125025952568898001",
+    "2124922133545714160",
+    "2124985602722676794",
+    "2125007029442114041",
+    "2125007831292104805"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -221,7 +225,11 @@
     "2a2af93f2f5233de",
     "cf07113fa8fa852e",
     "fabcc1051a70fa54",
-    "caa532bbe81de84c"
+    "caa532bbe81de84c",
+    "6b1c20f9b9fc22b7",
+    "d623cc7376f77723",
+    "4160e0b31e22e87f",
+    "7b701fe89c22045d"
   ],
   "recent_titles": [
     "Unequivocal super intelligence has arrived. Welcome to the Singularity.",
@@ -333,6 +341,10 @@
     "If an AI buys your plane ticket, it shouldn’t come back with a new car. Red Hat’s @kernelcdub explains why AI agents need clear limits. Tomorrow on the NVIDIA AI Podcast.",
     "In one run, GPT-6 Cyber helped us validate 948 Linux kernel bugs that could grant local root access and generate patches for review.",
     "We’re introducing Shirudo, an open-source Linux runtime allowing agents to defend systems without downtime. It lets agents write dynamic eBPF controls to shield systems from exploits, giving defenders more time to test and roll out patches.",
-    "Update: The S&P 500 rallied 4.7% today, its biggest up day since April 9, 2025 at the end of the tariff bear market. High volatility cuts both ways - we saw the downside extreme last Friday and today the extreme upside."
+    "Update: The S&P 500 rallied 4.7% today, its biggest up day since April 9, 2025 at the end of the tariff bear market. High volatility cuts both ways - we saw the downside extreme last Friday and today the extreme upside.",
+    "Through our new program OpenWorks, we fund local AI experts to help small businesses develop the tools and skills they need to grow their own business, at no cost to them.",
+    "a new open-source Linux runtime, built for the agentic era, to empower defenders to defend systems at machine speed without downtime:",
+    "I built (with a lot of help from Fable 5.2) a new datasette-charts plugin, which is my best attempt yet at having Datasette automatically pick credible visualizations for any data you might throw at it",
+    "BREAKING: The United States now has 5,159 data centers, more than the next 9 countries with the most data centers combined. This includes operational facilities as well as projects that are planned, under construction, or land-banked."
   ]
 }
