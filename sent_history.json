@@ -201,7 +201,8 @@
     "2125334383490105601",
     "2125335287975104538",
     "2125334392814051724",
-    "2125341356503748716"
+    "2125341356503748716",
+    "2125343839275700225"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -405,10 +406,10 @@
     "e784629887ff0578",
     "a78254ed3f907a59",
     "87acc80a37cb2ffe",
-    "38bfadd2440c1dd1"
+    "38bfadd2440c1dd1",
+    "c68263965afc0fd6"
   ],
   "recent_titles": [
-    "BREAKING: Arm, $ARM, CEO Rene Haas, widely viewed as a leading candidate to become Nvidia's, $NVDA, next CEO, will become SoftBank's Vice Chairman on December 1st. Haas also reaffirmed his \"long-term commitment\" to leading Arm.",
     "US net equity inflows are up to ~3.0% of GDP, their highest on record in data going back to the 1980s. Net equity inflows measure foreign purchases of US stocks minus US investors' purchases of foreign equities.",
     "BREAKING: Nvidia, $NVDA, reinstates Jensen Huang as CEO, President, and Board Member, effective immediately.",
     "BREAKING: Nvidia stock, $NVDA, surges over +28% after the company reinstates Jensen Huang as CEO, effectively immediately. The stock has now added +$820 billion in market cap today on the news. Jensen Huang is officially back.",
@@ -557,6 +558,7 @@
     "We’re sharing a new preprint showing wet lab validation of intrinsic protein design capabilities of the GPT-6 family of models.",
     "Well to be fair most GW data centers are multiple buildings of 100s of MW not one giant GW scale building. This trend likely continues.",
     "In a separate experiment, GPT-6.2 designed new sequences for three shapes it had previously designed. 14 of 107 proteins made with the new sequences showed binding in the wet lab. GPT-6.2 also redesigned the parts of antibodies that grip a target.",
-    "GPT-6 for designing new protein shapes and sequences — no bio-specific model required. Another example of the unreasonable effectiveness of reasoning and code to solve problems universally."
+    "GPT-6 for designing new protein shapes and sequences — no bio-specific model required. Another example of the unreasonable effectiveness of reasoning and code to solve problems universally.",
+    "China’s housing market is getting crushed. YoY, China’s new home prices fell -2.4% last month, marking their 40th consecutive decline. New home prices in 70 Chinese cities, excluding state-subsidized housing, fell -0.2% MoM in October."
   ]
 }
