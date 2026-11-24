@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: x-tracker-bot
+  group: ${{ inputs.test_send && 'x-tracker-test-send' || 'x-tracker-bot' }}
   cancel-in-progress: false
 
 jobs:
@@ -45,8 +45,9 @@ jobs:
         run: |
           if [ "${{ inputs.test_send }}" = "true" ]; then
             python X_Tracker.py --test-send
+          else
+            python X_Tracker.py --max-age 90
           fi
-          python X_Tracker.py --max-age 90
 
       - name: Commit updated history
         run: |
