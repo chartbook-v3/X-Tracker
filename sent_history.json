@@ -204,7 +204,8 @@
     "2125341356503748716",
     "2125343839275700225",
     "2125334385272774887",
-    "2125340219558027455"
+    "2125340219558027455",
+    "2125348756027842934"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -411,10 +412,10 @@
     "38bfadd2440c1dd1",
     "c68263965afc0fd6",
     "eb53c45ac381f071",
-    "cf54f5f8122120d9"
+    "cf54f5f8122120d9",
+    "23295c7560151b8a"
   ],
   "recent_titles": [
-    "BREAKING: Nvidia stock, $NVDA, surges over +28% after the company reinstates Jensen Huang as CEO, effectively immediately. The stock has now added +$820 billion in market cap today on the news. Jensen Huang is officially back.",
     "Notwithstanding the weekend chatter, the odds of a Fed rate hike remain above 90%, at least for now ..,. whether you look at market pricing or prediction markets (Kalshi numbers below). #economy #markets #federalreserve",
     "BREAKING: Jensen Huang releases a statement after being reinstated as CEO of Nvidia, $NVDA: Full statement: \"I am honored to return to NVIDIA and lead one of the most consequential technology companies in the world at the beginning of a new industrial",
     "BREAKING: Nasdaq 100 futures have been halted after surging +7% on news of Nvidia, $NVDA, reinstating Jensen Huang as CEO.",
@@ -563,6 +564,7 @@
     "GPT-6 for designing new protein shapes and sequences — no bio-specific model required. Another example of the unreasonable effectiveness of reasoning and code to solve problems universally.",
     "China’s housing market is getting crushed. YoY, China’s new home prices fell -2.4% last month, marking their 40th consecutive decline. New home prices in 70 Chinese cities, excluding state-subsidized housing, fell -0.2% MoM in October.",
     "Performance improved across model generations. In computer tests, an internal research model matched or outperformed specialized models on many protein tasks, including designing shapes and predicting how molecules fit together.",
-    "Is that a lot? Asking for a friend."
+    "Is that a lot? Asking for a friend.",
+    "The best way to know if you new models will work well for your tasks is to actually test them on your tasks. Here's an easy way to have your agent do that on OpenRouter with the generation/content endpoint."
   ]
 }
