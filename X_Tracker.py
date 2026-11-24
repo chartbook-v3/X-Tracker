@@ -904,9 +904,20 @@ def main():
     script_start = time.time()
     parser = argparse.ArgumentParser(description="X-Tracker VIP Telegram Bot")
     parser.add_argument("--dry-run", action="store_true", help="텔레그램 미발송, 콘솔 미리보기만 출력")
+    parser.add_argument("--test-send", action="store_true", help="현재 출력 양식으로 텔레그램 테스트 메시지 1건 발송")
     parser.add_argument("--max-age", type=int, default=DEFAULT_MAX_AGE_MINUTES, help="수집 허용 최대 경과 시간(분)")
     parser.add_argument("--window", type=str, default="2h", help="Google News when 파라미터 (기본 2h)")
     args = parser.parse_args()
+
+    if args.test_send:
+        ok = send_telegram(
+            "X ｜ OPENROUTER OFFICIAL",
+            "[출력 양식 테스트]\n제목 하이퍼링크 및 본문 표시 확인용 테스트 메시지입니다.",
+            "https://x.com/OpenRouter/status/2124925631012209137",
+            dry_run=args.dry_run,
+        )
+        print(f"[TEST-SEND] sent={ok}")
+        return
 
     hist = load_history()
 

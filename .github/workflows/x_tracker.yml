@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+    inputs:
+      test_send:
+        description: '출력 양식 테스트 메시지 1건 발송 여부'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -36,7 +42,11 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: '@chartbookx'
-        run: python X_Tracker.py --max-age 90
+        run: |
+          if [ "${{ inputs.test_send }}" = "true" ]; then
+            python X_Tracker.py --test-send
+          fi
+          python X_Tracker.py --max-age 90
 
       - name: Commit updated history
         run: |
