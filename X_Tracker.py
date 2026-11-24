@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로 주요 인사 및 공식 계정 48곳 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로 주요 인사 및 공식 계정 49곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
   1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 2~3인 소그룹 22개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
@@ -76,7 +76,7 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml, */*",
 }
 
-# X 주요 인사 및 공식 계정 48개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식 6개 추가)
+# X 주요 인사 및 공식 계정 49개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식 계정 추가)
 X_VIP_PROFILES = {
     # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (7명)
     "dylan522p": "X ｜ DYLAN PATEL (SEMIANALYSIS)",
@@ -124,12 +124,13 @@ X_VIP_PROFILES = {
     "aravsrinivas": "X ｜ ARAVIND SRINIVAS (PERPLEXITY CEO)",
     "alexandr_wang": "X ｜ ALEXANDR WANG (META AI)",
     "clementdelangue": "X ｜ CLEMENT DELANGUE (HUGGING FACE CEO)",
-    # 6. 핵심 빅테크 · 반도체 · AI 공식 계정 (7개)
+    # 6. 핵심 빅테크 · 반도체 · AI 공식 계정 (8개)
     "nvidianewsroom": "X ｜ NVIDIA NEWSROOM",
     "nvidia": "X ｜ NVIDIA OFFICIAL",
     "nvidiaai": "X ｜ NVIDIA AI",
     "openai": "X ｜ OPENAI OFFICIAL",
     "anthropicai": "X ｜ ANTHROPIC OFFICIAL",
+    "openrouter": "X ｜ OPENROUTER OFFICIAL",
     "amd": "X ｜ AMD OFFICIAL",
     "intel": "X ｜ INTEL OFFICIAL",
 }
@@ -180,7 +181,7 @@ X_QUERY_GROUPS = [
     ("X-AI-CEO2", ["AravSrinivas", "alexandr_wang", "ClementDelangue"]),
     # 핵심 공식 계정 소그룹 (2개 — 신규)
     ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
-    ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
+    ("X-Official-AI", ["OpenAI", "AnthropicAI", "OpenRouter"]),
     # 반도체·하드웨어 애널리스트 소그룹 (3개)
     ("X-Semi1", ["dylan522p", "mingchikuo", "divestech"]),
     ("X-Semi2", ["benbajarin", "patrickmoorhead"]),
