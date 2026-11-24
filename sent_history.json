@@ -209,7 +209,9 @@
     "2125357895856582690",
     "2125348768870744487",
     "2125364172397666355",
-    "2125366757389156377"
+    "2125366757389156377",
+    "2125364190802227680",
+    "2125363024169222530"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -421,11 +423,11 @@
     "f6dbdaabd4696430",
     "58e37310035c02d8",
     "9535e8d3255f9ad9",
-    "2f3cb2fb9b65ad67"
+    "2f3cb2fb9b65ad67",
+    "2d1a209e687149b1",
+    "05863417766eee88"
   ],
   "recent_titles": [
-    "Grok Bot can find you Black Friday deals",
-    "This Nvidia situation will prove to be one of retail's biggest wins in history. As the doomers and bears called for an end to the AI Revolution, retail investors were aggressively buying $NVDA.",
     "BREAKING: President Trump says Nvidia's board, $NVDA, asked for \"assurance\" on the national security threat and \"we gave them assurance.\" It now seems as though the Trump Administration is suggesting that the national security threat will not be as big of",
     "Days like today make it feel like financial markets are running a series of “natural experiments,” or what a friend calls “simulations.” Whatever you call it, the sheer fluidity and volatility are breathtaking.",
     "BREAKING: Jensen Huang updates his X bio and adds “CEO of Nvidia” to his title.",
@@ -573,6 +575,8 @@
     "Also, no growth through free subsidies here. Model usage on both Ask and Computer is paid for by users.",
     "Example prompt: \"Pull the stored prompt for generation via /api/v1/generation/content?id=, rerun it on openai/gpt-6.2-sol, and compare the answer and cost (from /api/v1/generation?id=) against what we are currently running.\"",
     "BREAKING: President Trump says he is willing to pardon Nvidia, $NVDA, CEO Jensen Huang “if necessary,” per NY Post. Trump also tells Jensen Huang not to plead the 5th at his congressional testimony next week.",
-    "Gold is down over 37% from its all-time high in January, its largest correction since 2015."
+    "Gold is down over 37% from its all-time high in January, its largest correction since 2015.",
+    "Perplexity is turning into a work operating system. Slide decks you create in Perplexity Computer now have a native viewer that allows you to edit in place. Supports both PowerPoint and Google Slides.",
+    "The story here is looking like a story in robotics and 3D design. The latest frontier models have a tremendous general capability for diverse hard problems that we used to think would require specialized models or approaches."
   ]
 }
