@@ -197,7 +197,8 @@
     "2125305172721320165",
     "2125319978924830938",
     "2125322756783046784",
-    "2125328996221231313"
+    "2125328996221231313",
+    "2125334383490105601"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -397,10 +398,10 @@
     "aaf601b0f4c82dcc",
     "cf61881d7a21a0bc",
     "f15d8634ba7e27ef",
-    "e5be98369a3b2e5d"
+    "e5be98369a3b2e5d",
+    "e784629887ff0578"
   ],
   "recent_titles": [
-    "To be clear, much of what I said has been said by the leaders of other labs. What I *am* saying is this path is not inevitable.",
     "Gemini 4 Neon has compounded at +10.6%/day in Ask (fast search) queries and +15.0%/day in Computer (agentic tasks) user-generated on Perplexity, since its first full day (Nov 19 to Nov 22, 22-hour matched basis).",
     "BREAKING: Nasdaq 100 futures surge nearly +4% on premarket trading as dip buyers rotate into chip stocks. This puts the Nasdaq 100 on track for its biggest daily gain since May 2025.",
     "Good morning. The interaction between massive AI spending and the rest of the economy is multi-dimensional.",
@@ -549,6 +550,7 @@
     "GPT-6.2 Astra for solving a significant historical mystery:",
     "Well this is going to be handy.",
     "Reminder this is a global buildout not a local one. via MS.",
-    "We've passed 120B tokens of Gemini 4 Neon usage inside Perplexity, doubling daily token volume in just 3 days. Monday (yesterday) alone was 36B."
+    "We've passed 120B tokens of Gemini 4 Neon usage inside Perplexity, doubling daily token volume in just 3 days. Monday (yesterday) alone was 36B.",
+    "We’re sharing a new preprint showing wet lab validation of intrinsic protein design capabilities of the GPT-6 family of models."
   ]
 }
