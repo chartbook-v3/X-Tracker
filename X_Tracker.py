@@ -163,6 +163,7 @@ LOW_FREQ_GROUPS = {
     "X-AI-CEO1",
     "X-Official-NVDA",
     "X-Official-AI",
+    "X-Official-OpenRouter",
 }
 
 # Google News when:2h 무력화 방지를 위해 고빈도 단독(1인) + 소그룹(2~3인) 22개 쿼리로 정밀 분할
@@ -179,9 +180,10 @@ X_QUERY_GROUPS = [
     ("X-ChipCEO", ["LisaSu", "AMD", "Intel"]),
     ("X-AI-CEO1", ["gdb", "DarioAmodei", "demishassabis"]),
     ("X-AI-CEO2", ["AravSrinivas", "alexandr_wang", "ClementDelangue"]),
-    # 핵심 공식 계정 소그룹 (2개 — 신규)
+    # 핵심 공식 계정 소그룹 (3개)
     ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
-    ("X-Official-AI", ["OpenAI", "AnthropicAI", "OpenRouter"]),
+    ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
+    ("X-Official-OpenRouter", ["OpenRouter"]),
     # 반도체·하드웨어 애널리스트 소그룹 (3개)
     ("X-Semi1", ["dylan522p", "mingchikuo", "divestech"]),
     ("X-Semi2", ["benbajarin", "patrickmoorhead"]),
