@@ -182,7 +182,8 @@
     "2125287248459628639",
     "2125298918061728146",
     "2125297945884995935",
-    "2125297504858305021"
+    "2125297504858305021",
+    "2125305608597590018"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -367,10 +368,10 @@
     "cd46e4bd94f50d7b",
     "47816c9e2f1c3b64",
     "ef3a9c7041400da6",
-    "faa7ac36a33a48b1"
+    "faa7ac36a33a48b1",
+    "3c2b248133c77e14"
   ],
   "recent_titles": [
-    "Starlink helps kids with education",
     "TIL: We have superintelligence but we still don't have level-5 autonomous driving. A task that most 17 year olds can learn in 20 hours of practice. And we have (you have) billions of hours of training data.",
     "Most people don’t yet realize that Cybercab would win even at price parity and its cost will be much less",
     "RAM is super expensive, so we reduced AI4.5 from 32GB to 24GB. That will be fine. It’s hard to use 32GB anyway, given memory bandwidth constraints.",
@@ -519,6 +520,7 @@
     "“Make products you want to see exist and use” is basically what Perplexity enables for people.",
     "Market corrections are a regular phenomenon: The US equity market has recorded an average of 1 correction of 10%+ per year since 1930. Since 2000, the S&P 500 has seen 24 regular corrections.",
     "My vote for the best-looking back of a watch: the mid 1950s Longines Conquest.",
-    "Open-weight models account for 35% of spend across OpenRouter, up from 15% in January. Current open-weight leaders include: - DeepSeek (10% of spend) - Moonshot AI (8%) - Zai (7%) - Qwen (2%) - Xai (2%)"
+    "Open-weight models account for 35% of spend across OpenRouter, up from 15% in January. Current open-weight leaders include: - DeepSeek (10% of spend) - Moonshot AI (8%) - Zai (7%) - Qwen (2%) - Xai (2%)",
+    "Kevin used Codex to build a program that searched for observations of about 100,000 stars from NASA’s Kepler telescope. One star in the constellation Lyra dimmed every 13.8 days."
   ]
 }
