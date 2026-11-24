@@ -477,7 +477,7 @@ def _extract_article_text(article: dict, max_chars: int = 4800) -> str:
 
     result = "\n\n".join(parts).strip()
     if truncated:
-        result += "\n\n[이하 전문은 하단 원문 링크 참고]"
+        result += "\n\n[이하 전문은 상단 원문 링크 참고]"
     return result
 
 
@@ -655,7 +655,7 @@ def format_message(profile_label: str, text_ko: str, x_url: str) -> str:
     safe_src = html.escape(profile_label, quote=False)
     safe_body = html.escape(text_ko, quote=False)
     safe_url = html.escape(x_url, quote=True)
-    return f'<b>{safe_src}</b>\n\n{safe_body}\n\n<a href="{safe_url}">원문 보기</a>'
+    return f'<a href="{safe_url}"><b>{safe_src}</b></a>\n\n{safe_body}'
 
 
 def send_telegram(profile_label: str, text_ko: str, x_url: str, dry_run: bool = False) -> bool:
@@ -810,7 +810,7 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
             nl_idx = cut.rfind("\n")
             if nl_idx > 2500:
                 cut = cut[:nl_idx]
-            text_ko = cut.rstrip() + "\n\n...(이하 전문은 하단 원문 링크 참고)"
+            text_ko = cut.rstrip() + "\n\n...(이하 전문은 상단 원문 링크 참고)"
 
         if send_telegram(profile_label, text_ko, final_url, dry_run=dry_run):
             hist["status_ids"].append(sid_str)
