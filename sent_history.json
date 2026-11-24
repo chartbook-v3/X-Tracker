@@ -143,7 +143,8 @@
     "2125071229337932165",
     "2124936297571651803",
     "2125115240690201049",
-    "2125132836105809951"
+    "2125132836105809951",
+    "2125150185143906642"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -289,7 +290,8 @@
     "47c8e662906c48e3",
     "fda6be9f936c07fa",
     "4f8e47aa6e796f3a",
-    "7c902c81ffcb5edd"
+    "7c902c81ffcb5edd",
+    "d47d8165027958fb"
   ],
   "recent_titles": [
     "Unequivocal super intelligence has arrived. Welcome to the Singularity.",
@@ -435,6 +437,7 @@
     "What does it take to engineer a rack-scale cloud for @NVIDIA Vera Rubin? Tune in on December 10th to watch CoreWeave's Harsh Banwait and NVIDIA's Stuart Pitts break down the architecture behind running agentic AI at scale.",
     "Our CEO, Mike Intrator, sees customers already on our AI cloud asking for more and more infrastructure. He also sees more kinds of companies arriving, each with its own use for AI, and reads that as the technology spreading through the economy.",
     "Robotics control is undergoing a renaissance",
-    "it’s a great model"
+    "it’s a great model",
+    "GPT-6.2 Astra for research taste:"
   ]
 }
