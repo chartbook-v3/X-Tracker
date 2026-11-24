@@ -206,7 +206,8 @@
     "2125334385272774887",
     "2125340219558027455",
     "2125348756027842934",
-    "2125357895856582690"
+    "2125357895856582690",
+    "2125348768870744487"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -415,10 +416,10 @@
     "eb53c45ac381f071",
     "cf54f5f8122120d9",
     "23295c7560151b8a",
-    "f6dbdaabd4696430"
+    "f6dbdaabd4696430",
+    "58e37310035c02d8"
   ],
   "recent_titles": [
-    "BREAKING: Jensen Huang releases a statement after being reinstated as CEO of Nvidia, $NVDA: Full statement: \"I am honored to return to NVIDIA and lead one of the most consequential technology companies in the world at the beginning of a new industrial",
     "BREAKING: Nasdaq 100 futures have been halted after surging +7% on news of Nvidia, $NVDA, reinstating Jensen Huang as CEO.",
     "Nvidia's board has listened. It has been a long 14 days, but we are pleased to see Nvidia's, $NVDA, board agree with our view to reinstate Jensen Huang.",
     "Grok Bot can find you Black Friday deals",
@@ -567,6 +568,7 @@
     "Performance improved across model generations. In computer tests, an internal research model matched or outperformed specialized models on many protein tasks, including designing shapes and predicting how molecules fit together.",
     "Is that a lot? Asking for a friend.",
     "The best way to know if you new models will work well for your tasks is to actually test them on your tasks. Here's an easy way to have your agent do that on OpenRouter with the generation/content endpoint.",
-    "Also, no growth through free subsidies here. Model usage on both Ask and Computer is paid for by users."
+    "Also, no growth through free subsidies here. Model usage on both Ask and Computer is paid for by users.",
+    "Example prompt: \"Pull the stored prompt for generation via /api/v1/generation/content?id=, rerun it on openai/gpt-6.2-sol, and compare the answer and cost (from /api/v1/generation?id=) against what we are currently running.\""
   ]
 }
