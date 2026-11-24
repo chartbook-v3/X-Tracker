@@ -184,7 +184,10 @@
     "2125297945884995935",
     "2125297504858305021",
     "2125305608597590018",
-    "2125305606685053416"
+    "2125305606685053416",
+    "2125300446978101642",
+    "2125305610678010244",
+    "2125307164768317922"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -371,12 +374,12 @@
     "ef3a9c7041400da6",
     "faa7ac36a33a48b1",
     "3c2b248133c77e14",
-    "e70f387f97915a86"
+    "e70f387f97915a86",
+    "8b57bc64c5f57cb5",
+    "a3a1ba27e313b692",
+    "006ecd5aecac9a60"
   ],
   "recent_titles": [
-    "Most people don’t yet realize that Cybercab would win even at price parity and its cost will be much less",
-    "RAM is super expensive, so we reduced AI4.5 from 32GB to 24GB. That will be fine. It’s hard to use 32GB anyway, given memory bandwidth constraints.",
-    "BREAKING: US stock market futures rebound as markets reopen for the first time since the Nasdaq 100's worst week since 2020: 1. S&P 500: +1.4% 2. Nasdaq 100: +2.2% 3.",
     "Superintelligence is Arriving Superintelligence is arriving. How humanity acts over the next year will have great consequence on what future world we live in.",
     "BREAKING: Nasdaq 100 futures extend gains to +3% as markets reopen after last week’s tech selloff. The S&P 500 is now set to open outside of correction territory.",
     "Hopefully available towards the end of next year. This will be important for unsupervised FSD, so passengers have high bandwidth everywhere for work and entertainment.",
@@ -523,6 +526,9 @@
     "My vote for the best-looking back of a watch: the mid 1950s Longines Conquest.",
     "Open-weight models account for 35% of spend across OpenRouter, up from 15% in January. Current open-weight leaders include: - DeepSeek (10% of spend) - Moonshot AI (8%) - Zai (7%) - Qwen (2%) - Xai (2%)",
     "Kevin used Codex to build a program that searched for observations of about 100,000 stars from NASA’s Kepler telescope. One star in the constellation Lyra dimmed every 13.8 days.",
-    "Two amateur astronomers, Kevin Bond (@canvrno) and Ethan Byrd (@itsjustemail), independently found signals that could point to planets around distant stars. They knew you didn't need your own telescope for this kind of hunt."
+    "Two amateur astronomers, Kevin Bond (@canvrno) and Ethan Byrd (@itsjustemail), independently found signals that could point to planets around distant stars. They knew you didn't need your own telescope for this kind of hunt.",
+    "If you care only about quality, rare things will always be overpriced, because they have an extra feature that other people will pay a lot for.",
+    "Ethan asked Astra to review published methods and write software to search observations of about 19 million stars from NASA’s TESS mission.",
+    "Codex and Astra for searching for exoplanets:"
   ]
 }
