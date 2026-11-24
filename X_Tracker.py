@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로 주요 인사 44인 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로 주요 인사 및 공식 계정 48곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
-  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 2~3인 소그룹 분할 (Google News when:2h 정상화)
-  2) 핵심 기술·시장 발언을 담은 45자 이상 '@' 답글 선택 허용 (짧은 감탄사·잡담 답글 및 'reposted' 껍데기 차단)
-  3) FSD·AI4/5/6·SRAM·SoC·compute·Grok·Starlink 등 첨단 기술·매크로 키워드 정밀 매칭
+  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 2~3인 소그룹 22개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
+  2) 키워드 필터 전면 폐지(누락 방지) + 최소 위생 필터만 유지 (빈 리포스트 껍데기·초단문·짧은 답글·스포츠/연예 노이즈만 차단)
+  3) X Article(장문 아티클) 블록 추출 지원 + URL 단독 입력 번역 환각 차단 가드레일
   4) X Snowflake 64비트 Status ID 기반 100% 정확한 UTC 발행시각 및 원작성자 핸들 검증
   5) Gemini Flash 금융 특화 한국어 번역 + 무료 Google Translate 자동 폴백
   6) GitHub Actions 24시간 무중단 Zero-Lag Relay 탑재
@@ -134,8 +134,8 @@ X_VIP_PROFILES = {
     "intel": "X ｜ INTEL OFFICIAL",
 }
 
-# 초핵심 저빈도 CEO·뉴스룸: 키워드 필터 면제 및 최소 길이(6자) 완화 대상
-VIP_BYPASS_HANDLES = {
+# 초핵심 저빈도 CEO·뉴스룸: 초단문 원글(6자 이상, 예: 'Jensen!', "I'm back.") 및 짧은 답글(25자 이상) 허용
+VIP_SHORT_ALLOW_HANDLES = {
     "jensenhuang",
     "sama",
     "darioamodei",
@@ -207,36 +207,7 @@ def build_gnews_x_url(handles: list[str], window: str = "2h") -> str:
     return f"https://news.google.com/rss/search?q={urllib.parse.quote(q)}&hl=en-US&gl=US&ceid=US:en"
 
 
-# 핵심 기술·반도체·AI·기업·매크로 정밀 정규식 (기존 누락 용어 전면 보강)
-X_TECH_MARKET_REGEX = re.compile(
-    r"\b("
-    # 빅테크·AI 기업 및 제품
-    r"tesla|tsla|fsd|autopilot|robotaxi|cybercab|optimus|grok|xai|spacex|starlink|starship|"
-    r"ai4|ai5|ai6|trip|dojo|megapack|supercharger|radar|"
-    r"nvidia|nvda|tsmc|asml|intel|amd|broadcom|avgo|micron|samsung|hynix|arm|qualcomm|"
-    r"apple|aapl|microsoft|msft|google|alphabet|meta|amazon|amzn|aws|azure|oracle|"
-    r"openai|anthropic|claude|gpt|gemini|deepseek|llama|mistral|perplexity|hugging\s*face|genie|sora|codex|"
-    # 반도체·하드웨어·컴퓨트
-    r"chip|chips|semiconductor|gpu|gpus|tpu|npu|asic|soc|sram|dram|hbm|hbm3e|hbm4|nand|"
-    r"wafer|foundry|cowos|packaging|lithography|euv|compute|cluster|datacenter|data\s*center|"
-    r"cooling|gigawatt|megawatt|server|accelerator|silicon|blackwell|rubin|decoder|inference|"
-    r"robotics|humanoid|autonomous|ev|battery|lithium|energy|nuclear|smr|"
-    # 프론티어 AI
-    r"superintelligence|super\s*intelligence|agi|asi|singularity|llm|reasoning|agent|agents|"
-    r"alignment|benchmark|post-training|sft|rlhf|synthetic\s*data|video\s*generation|world\s*model|"
-    r"neural|model|models|ai\s+model|ai\s+system|open\s*source|"
-    # 매크로·증시·기업 이벤트
-    r"fed|fomc|powell|rate\s*cut|rate\s*hike|cpi|pce|gdp|inflation|deflation|recession|"
-    r"tariff|tariffs|treasury|yield|bond|bonds|liquidity|cash\s*shortage|capex|revenue|"
-    r"earnings|guidance|valuation|ipo|m&a|acquisition|merger|buyout|selloff|oversold|"
-    r"s&p|nasdaq|dow|stock|stocks|shares|market|markets|oil|crude|gold|silver|copper|"
-    r"bitcoin|btc|crypto|china|export\s*control|sanction|sanctions|antitrust|doj|sec|ftc|"
-    r"billion|trillion|economy|economic|unemployment|payroll|jobs|retail\s*sales|pmi"
-    r")\b",
-    flags=re.IGNORECASE,
-)
-
-# 명백한 비시장 잡담·스포츠·연예 노이즈 차단
+# 명백한 비시장 잡담·스포츠·연예 노이즈 차단 (키워드 필터 전면 폐지, 최소 위생 필터만 유지)
 NOISE_REGEX = re.compile(
     r"\b("
     r"nba|nfl|mlb|nhl|premier\s*league|world\s*cup|olympics|grammy|oscar|box\s*office|"
@@ -246,8 +217,11 @@ NOISE_REGEX = re.compile(
     flags=re.IGNORECASE,
 )
 
-# 본문 없는 껍데기 리포스트 및 단순 감탄사 차단
-REPOST_SHELL_RE = re.compile(r"^.+\s+(?:reposted|retweeted)\s*$", flags=re.IGNORECASE)
+# 본문 없는 껍데기 리포스트·프로필 헤더 차단
+REPOST_SHELL_RE = re.compile(
+    r"^(?:reposts?\s+by\s+.+|.+\s+(?:reposted|retweeted)|.{1,50}\(@[A-Za-z0-9_]+\))\s*$",
+    flags=re.IGNORECASE,
+)
 LEADING_MENTIONS_RE = re.compile(r"^(?:@[A-Za-z0-9_]+\s+)+")
 
 
@@ -369,12 +343,13 @@ def parse_x_status_url(final_url: str) -> tuple[str | None, str | None, datetime
         return handle_low, sid_str, None
 
 
-def clean_and_filter_x_text(raw_text: str, bypass_keyword: bool = False) -> tuple[str, bool]:
+def clean_and_filter_x_text(raw_text: str, allow_short: bool = False) -> tuple[str, bool]:
     """
-    X 게시글 정제 및 필터링:
+    X 게시글 정제 및 최소 위생 필터링 (키워드 필터 없음):
     - 본문 없는 'reposted' 껍데기 및 'RT @' 차단
-    - bypass_keyword=True(저빈도 초핵심 VIP): 키워드 필터 면제, 일반 원글 6자·답글 30자 이상 허용
-    - 일반 계정: 답글 45자 이상 / 일반 원글 15자 이상 + 핵심 키워드 매칭 시 허용
+    - '@' 답글: 멘션 제거 후 35자 이상(초핵심 VIP는 25자 이상) 허용
+    - 일반 원글: 10자 이상(초핵심 VIP는 6자 이상) 허용 ('😂', 'True' 등 초단문 제외)
+    - 명백한 스포츠·연예 노이즈 블랙리스트만 차단
     """
     t = html.unescape(raw_text or "").strip()
     t = re.sub(r"\s*[-–—]\s*(?:X|Twitter)\s*$", "", t, flags=re.IGNORECASE).strip()
@@ -387,18 +362,15 @@ def clean_and_filter_x_text(raw_text: str, bypass_keyword: bool = False) -> tupl
     is_reply = t.startswith("@")
     if is_reply:
         t = LEADING_MENTIONS_RE.sub("", t).strip()
-        min_rep_len = 30 if bypass_keyword else 45
+        min_rep_len = 25 if allow_short else 35
         if len(t) < min_rep_len:
             return "", False
     else:
-        min_post_len = 6 if bypass_keyword else 15
+        min_post_len = 6 if allow_short else 10
         if len(t) < min_post_len:
             return "", False
 
     if NOISE_REGEX.search(t):
-        return "", False
-
-    if not bypass_keyword and not X_TECH_MARKET_REGEX.search(t):
         return "", False
 
     # Google News 제목 절단 보정 (최대 3문장, 250자)
@@ -709,7 +681,7 @@ def fetch_group(name: str, handles: list[str], max_age_minutes: int, window: str
     is_low_freq = name in LOW_FREQ_GROUPS
     eff_window = "1d" if is_low_freq else window
     eff_max_age = max(max_age_minutes, LOW_FREQ_MAX_AGE_MINUTES) if is_low_freq else max_age_minutes
-    group_has_vip_bypass = any(h.lower() in VIP_BYPASS_HANDLES for h in handles)
+    group_allows_short = any(h.lower() in VIP_SHORT_ALLOW_HANDLES for h in handles)
 
     url = build_gnews_x_url(handles, window=eff_window)
     try:
@@ -735,7 +707,7 @@ def fetch_group(name: str, handles: list[str], max_age_minutes: int, window: str
         if age_m < -5 or age_m > eff_max_age:
             continue
 
-        cleaned, is_reply = clean_and_filter_x_text(raw_t, bypass_keyword=group_has_vip_bypass)
+        cleaned, is_reply = clean_and_filter_x_text(raw_t, allow_short=group_allows_short)
         if not cleaned:
             continue
 
@@ -797,9 +769,8 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
         handle_low, sid_str, tweet_dt = parse_x_status_url(final_url)
         if not handle_low or not sid_str or handle_low not in X_VIP_PROFILES:
             continue
-        # 그룹 내 비-면제 계정은 엄격한 키워드·길이 필터 재검증 (노이즈 유입 차단)
-        if handle_low not in VIP_BYPASS_HANDLES:
-            strict_cleaned, _ = clean_and_filter_x_text(item.get("raw_title", item["text_en"]), bypass_keyword=False)
+        if handle_low not in VIP_SHORT_ALLOW_HANDLES:
+            strict_cleaned, _ = clean_and_filter_x_text(item.get("raw_title", item["text_en"]), allow_short=False)
             if not strict_cleaned:
                 continue
         if sid_str in sid_set:
