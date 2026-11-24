@@ -76,7 +76,7 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml, */*",
 }
 
-# X 주요 인사 44개 핸들 매핑
+# X 주요 인사 및 공식 계정 48개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식 6개 추가)
 X_VIP_PROFILES = {
     # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (7명)
     "dylan522p": "X ｜ DYLAN PATEL (SEMIANALYSIS)",
@@ -86,13 +86,12 @@ X_VIP_PROFILES = {
     "patrickmoorhead": "X ｜ PATRICK MOORHEAD (MOOR INSIGHTS)",
     "iancutress": "X ｜ IAN CUTRESS (CHIP ANALYST)",
     "markgurman": "X ｜ MARK GURMAN (BLOOMBERG)",
-    # 2. 거시경제(매크로) · 월가 시장 전략가 (6명)
+    # 2. 거시경제(매크로) · 월가 시장 전략가 (5명)
     "nicktimiraos": "X ｜ NICK TIMIRAOS (WSJ)",
     "elerianm": "X ｜ MOHAMED EL-ERIAN (ALLIANZ)",
     "schuldensuehner": "X ｜ HOLGER ZSCHAEPITZ (WELT)",
     "charliebilello": "X ｜ CHARLIE BILELLO (CREATIVE PLANNING)",
     "kobeissiletter": "X ｜ THE KOBEISSI LETTER",
-    "northmantrader": "X ｜ SVEN HENRICH (NORTHMANTRADER)",
     # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (8명)
     "karpathy": "X ｜ ANDREJ KARPATHY (OPENAI CO-FOUNDER)",
     "andrewyng": "X ｜ ANDREW NG (COURSERA)",
@@ -108,18 +107,16 @@ X_VIP_PROFILES = {
     "garrytan": "X ｜ GARRY TAN (Y COMBINATOR CEO)",
     "eladgil": "X ｜ ELAD GIL (TECH VC)",
     "mkbhd": "X ｜ MARQUES BROWNLEE (MKBHD)",
-    # 5. 빅테크 · 반도체 · 프론티어 AI 수장 (18개)
+    # 5. 빅테크 · 반도체 · 프론티어 AI 수장 (16명)
     "elonmusk": "X ｜ ELON MUSK (TESLA · XAI · SPACEX)",
-    "tim_cook": "X ｜ TIM COOK (APPLE)",
+    "tim_cook": "X ｜ TIM COOK (APPLE CHAIRMAN)",
     "sundarpichai": "X ｜ SUNDAR PICHAI (GOOGLE CEO)",
     "satyanadella": "X ｜ SATYA NADELLA (MICROSOFT CEO)",
     "ajassy": "X ｜ ANDY JASSY (AMAZON CEO)",
     "finkd": "X ｜ MARK ZUCKERBERG (META CEO)",
     "tobi": "X ｜ TOBI LUTKE (SHOPIFY CEO)",
     "lisasu": "X ｜ LISA SU (AMD CEO)",
-    "jensenhuang": "X ｜ JENSEN HUANG (NVIDIA CO-FOUNDER)",
-    "intel": "X ｜ INTEL OFFICIAL",
-    "intelnews": "X ｜ INTEL NEWS",
+    "jensenhuang": "X ｜ JENSEN HUANG (NVIDIA CEO)",
     "sama": "X ｜ SAM ALTMAN (OPENAI CEO)",
     "gdb": "X ｜ GREG BROCKMAN (OPENAI)",
     "darioamodei": "X ｜ DARIO AMODEI (ANTHROPIC CEO)",
@@ -127,9 +124,47 @@ X_VIP_PROFILES = {
     "aravsrinivas": "X ｜ ARAVIND SRINIVAS (PERPLEXITY CEO)",
     "alexandr_wang": "X ｜ ALEXANDR WANG (META AI)",
     "clementdelangue": "X ｜ CLEMENT DELANGUE (HUGGING FACE CEO)",
+    # 6. 핵심 빅테크 · 반도체 · AI 공식 계정 (7개)
+    "nvidianewsroom": "X ｜ NVIDIA NEWSROOM",
+    "nvidia": "X ｜ NVIDIA OFFICIAL",
+    "nvidiaai": "X ｜ NVIDIA AI",
+    "openai": "X ｜ OPENAI OFFICIAL",
+    "anthropicai": "X ｜ ANTHROPIC OFFICIAL",
+    "amd": "X ｜ AMD OFFICIAL",
+    "intel": "X ｜ INTEL OFFICIAL",
 }
 
-# Google News when:2h 무력화 방지를 위해 고빈도 단독(1인) + 소그룹(2~3인) 20개 쿼리로 정밀 분할
+# 초핵심 저빈도 CEO·뉴스룸: 키워드 필터 면제 및 최소 길이(6자) 완화 대상
+VIP_BYPASS_HANDLES = {
+    "jensenhuang",
+    "sama",
+    "darioamodei",
+    "lisasu",
+    "tim_cook",
+    "sundarpichai",
+    "satyanadella",
+    "finkd",
+    "ajassy",
+    "karpathy",
+    "demishassabis",
+    "nvidianewsroom",
+}
+
+# 저빈도 최상위 CEO·공식 그룹: Google News 색인 지연 방어용 24시간(1d) 윈도우 적용
+LOW_FREQ_MAX_AGE_MINUTES = 1440
+LOW_FREQ_GROUPS = {
+    "X-JensenHuang",
+    "X-SamAltman",
+    "X-Karpathy",
+    "X-BigTech1",
+    "X-BigTech2",
+    "X-ChipCEO",
+    "X-AI-CEO1",
+    "X-Official-NVDA",
+    "X-Official-AI",
+}
+
+# Google News when:2h 무력화 방지를 위해 고빈도 단독(1인) + 소그룹(2~3인) 22개 쿼리로 정밀 분할
 X_QUERY_GROUPS = [
     # 고빈도 핵심 VIP 단독 쿼리 (5개)
     ("X-ElonMusk", ["elonmusk"]),
@@ -137,19 +172,22 @@ X_QUERY_GROUPS = [
     ("X-SamAltman", ["sama"]),
     ("X-JensenHuang", ["jensenhuang"]),
     ("X-Karpathy", ["karpathy"]),
-    # 빅테크·반도체 CEO 소그룹 (4개)
+    # 빅테크·반도체 CEO 소그룹 (5개)
     ("X-BigTech1", ["tim_cook", "sundarpichai", "satyanadella"]),
     ("X-BigTech2", ["ajassy", "finkd", "tobi"]),
-    ("X-ChipCEO", ["LisaSu", "Intel", "IntelNews"]),
+    ("X-ChipCEO", ["LisaSu", "AMD", "Intel"]),
     ("X-AI-CEO1", ["gdb", "DarioAmodei", "demishassabis"]),
     ("X-AI-CEO2", ["AravSrinivas", "alexandr_wang", "ClementDelangue"]),
+    # 핵심 공식 계정 소그룹 (2개 — 신규)
+    ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
+    ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
     # 반도체·하드웨어 애널리스트 소그룹 (3개)
     ("X-Semi1", ["dylan522p", "mingchikuo", "divestech"]),
     ("X-Semi2", ["benbajarin", "patrickmoorhead"]),
     ("X-Semi3", ["iancutress", "markgurman"]),
     # 매크로 전략가 소그룹 (2개)
     ("X-Macro1", ["NickTimiraos", "elerianm", "Schuldensuehner"]),
-    ("X-Macro2", ["charliebilello", "NorthmanTrader"]),
+    ("X-Macro2", ["charliebilello"]),
     # AI 연구자·빌더 소그룹 (3개)
     ("X-AI-Res1", ["AndrewYNg", "ylecun", "DrJimFan"]),
     ("X-AI-Res2", ["emollick", "rowancheung"]),
@@ -331,12 +369,12 @@ def parse_x_status_url(final_url: str) -> tuple[str | None, str | None, datetime
         return handle_low, sid_str, None
 
 
-def clean_and_filter_x_text(raw_text: str) -> tuple[str, bool]:
+def clean_and_filter_x_text(raw_text: str, bypass_keyword: bool = False) -> tuple[str, bool]:
     """
     X 게시글 정제 및 필터링:
     - 본문 없는 'reposted' 껍데기 및 'RT @' 차단
-    - '@' 답글은 앞 멘션 제거 후 본문이 45자 이상이면서 핵심 키워드 매칭 시 선택 허용
-    - 일반 원글은 15자 이상이면서 핵심 키워드 매칭 시 허용
+    - bypass_keyword=True(저빈도 초핵심 VIP): 키워드 필터 면제, 일반 원글 6자·답글 30자 이상 허용
+    - 일반 계정: 답글 45자 이상 / 일반 원글 15자 이상 + 핵심 키워드 매칭 시 허용
     """
     t = html.unescape(raw_text or "").strip()
     t = re.sub(r"\s*[-–—]\s*(?:X|Twitter)\s*$", "", t, flags=re.IGNORECASE).strip()
@@ -349,16 +387,18 @@ def clean_and_filter_x_text(raw_text: str) -> tuple[str, bool]:
     is_reply = t.startswith("@")
     if is_reply:
         t = LEADING_MENTIONS_RE.sub("", t).strip()
-        if len(t) < 45:
+        min_rep_len = 30 if bypass_keyword else 45
+        if len(t) < min_rep_len:
             return "", False
     else:
-        if len(t) < 15:
+        min_post_len = 6 if bypass_keyword else 15
+        if len(t) < min_post_len:
             return "", False
 
     if NOISE_REGEX.search(t):
         return "", False
 
-    if not X_TECH_MARKET_REGEX.search(t):
+    if not bypass_keyword and not X_TECH_MARKET_REGEX.search(t):
         return "", False
 
     # Google News 제목 절단 보정 (최대 3문장, 250자)
@@ -666,7 +706,12 @@ def send_telegram(profile_label: str, text_ko: str, x_url: str, dry_run: bool = 
 
 def fetch_group(name: str, handles: list[str], max_age_minutes: int, window: str = "2h") -> list[dict]:
     results = []
-    url = build_gnews_x_url(handles, window=window)
+    is_low_freq = name in LOW_FREQ_GROUPS
+    eff_window = "1d" if is_low_freq else window
+    eff_max_age = max(max_age_minutes, LOW_FREQ_MAX_AGE_MINUTES) if is_low_freq else max_age_minutes
+    group_has_vip_bypass = any(h.lower() in VIP_BYPASS_HANDLES for h in handles)
+
+    url = build_gnews_x_url(handles, window=eff_window)
     try:
         r = requests.get(url, headers=HEADERS, timeout=10, verify=False)
         if r.status_code != 200:
@@ -687,19 +732,21 @@ def fetch_group(name: str, handles: list[str], max_age_minutes: int, window: str
         if pub_dt is None:
             continue
         age_m = (now_utc - pub_dt).total_seconds() / 60.0
-        if age_m < -5 or age_m > max_age_minutes:
+        if age_m < -5 or age_m > eff_max_age:
             continue
 
-        cleaned, is_reply = clean_and_filter_x_text(raw_t)
+        cleaned, is_reply = clean_and_filter_x_text(raw_t, bypass_keyword=group_has_vip_bypass)
         if not cleaned:
             continue
 
         results.append({
             "group": name,
+            "raw_title": raw_t,
             "text_en": cleaned,
             "is_reply": is_reply,
             "gn_url": raw_link,
             "pub_dt": pub_dt,
+            "max_age_m": eff_max_age,
         })
     return results
 
@@ -750,11 +797,17 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
         handle_low, sid_str, tweet_dt = parse_x_status_url(final_url)
         if not handle_low or not sid_str or handle_low not in X_VIP_PROFILES:
             continue
+        # 그룹 내 비-면제 계정은 엄격한 키워드·길이 필터 재검증 (노이즈 유입 차단)
+        if handle_low not in VIP_BYPASS_HANDLES:
+            strict_cleaned, _ = clean_and_filter_x_text(item.get("raw_title", item["text_en"]), bypass_keyword=False)
+            if not strict_cleaned:
+                continue
         if sid_str in sid_set:
             continue
         if tweet_dt is not None:
             true_age_m = (now_utc - tweet_dt).total_seconds() / 60.0
-            if true_age_m > max_age_minutes + 5:
+            item_max_age = item.get("max_age_m", max_age_minutes)
+            if true_age_m > item_max_age + 5:
                 continue
 
         profile_label = X_VIP_PROFILES[handle_low]
