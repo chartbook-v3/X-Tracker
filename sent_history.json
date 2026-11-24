@@ -113,7 +113,8 @@
     "2124922133545714160",
     "2124985602722676794",
     "2125007029442114041",
-    "2125007831292104805"
+    "2125007831292104805",
+    "2125017693917155424"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -229,7 +230,8 @@
     "6b1c20f9b9fc22b7",
     "d623cc7376f77723",
     "4160e0b31e22e87f",
-    "7b701fe89c22045d"
+    "7b701fe89c22045d",
+    "52b62d8095a133c6"
   ],
   "recent_titles": [
     "Unequivocal super intelligence has arrived. Welcome to the Singularity.",
@@ -345,6 +347,7 @@
     "Through our new program OpenWorks, we fund local AI experts to help small businesses develop the tools and skills they need to grow their own business, at no cost to them.",
     "a new open-source Linux runtime, built for the agentic era, to empower defenders to defend systems at machine speed without downtime:",
     "I built (with a lot of help from Fable 5.2) a new datasette-charts plugin, which is my best attempt yet at having Datasette automatically pick credible visualizations for any data you might throw at it",
-    "BREAKING: The United States now has 5,159 data centers, more than the next 9 countries with the most data centers combined. This includes operational facilities as well as projects that are planned, under construction, or land-banked."
+    "BREAKING: The United States now has 5,159 data centers, more than the next 9 countries with the most data centers combined. This includes operational facilities as well as projects that are planned, under construction, or land-banked.",
+    "GLM-5.4 is out, and in running pelicans riding bicycles for 5.4 v.s. 5.3, 5.2, and 5.1 I spotted quite a stark style change between 5.2 and 5.3"
   ]
 }
