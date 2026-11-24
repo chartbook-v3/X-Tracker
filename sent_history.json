@@ -207,7 +207,8 @@
     "2125340219558027455",
     "2125348756027842934",
     "2125357895856582690",
-    "2125348768870744487"
+    "2125348768870744487",
+    "2125364172397666355"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -417,10 +418,10 @@
     "cf54f5f8122120d9",
     "23295c7560151b8a",
     "f6dbdaabd4696430",
-    "58e37310035c02d8"
+    "58e37310035c02d8",
+    "9535e8d3255f9ad9"
   ],
   "recent_titles": [
-    "BREAKING: Nasdaq 100 futures have been halted after surging +7% on news of Nvidia, $NVDA, reinstating Jensen Huang as CEO.",
     "Nvidia's board has listened. It has been a long 14 days, but we are pleased to see Nvidia's, $NVDA, board agree with our view to reinstate Jensen Huang.",
     "Grok Bot can find you Black Friday deals",
     "This Nvidia situation will prove to be one of retail's biggest wins in history. As the doomers and bears called for an end to the AI Revolution, retail investors were aggressively buying $NVDA.",
@@ -569,6 +570,7 @@
     "Is that a lot? Asking for a friend.",
     "The best way to know if you new models will work well for your tasks is to actually test them on your tasks. Here's an easy way to have your agent do that on OpenRouter with the generation/content endpoint.",
     "Also, no growth through free subsidies here. Model usage on both Ask and Computer is paid for by users.",
-    "Example prompt: \"Pull the stored prompt for generation via /api/v1/generation/content?id=, rerun it on openai/gpt-6.2-sol, and compare the answer and cost (from /api/v1/generation?id=) against what we are currently running.\""
+    "Example prompt: \"Pull the stored prompt for generation via /api/v1/generation/content?id=, rerun it on openai/gpt-6.2-sol, and compare the answer and cost (from /api/v1/generation?id=) against what we are currently running.\"",
+    "BREAKING: President Trump says he is willing to pardon Nvidia, $NVDA, CEO Jensen Huang “if necessary,” per NY Post. Trump also tells Jensen Huang not to plead the 5th at his congressional testimony next week."
   ]
 }
