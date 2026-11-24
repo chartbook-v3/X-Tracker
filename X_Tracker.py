@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 57곳 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 54곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
-  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 27개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
+  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 26개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
   2) 키워드 필터 전면 폐지(누락 방지) + 최소 위생 필터만 유지 (빈 리포스트 껍데기·초단문·짧은 답글·스포츠/연예 노이즈만 차단)
   3) X Article(장문 아티클) 블록 추출 지원 + URL 단독 입력 번역 환각 차단 가드레일
   4) X Snowflake 64비트 Status ID 기반 100% 정확한 UTC 발행시각 및 원작성자 핸들 검증
@@ -76,7 +76,7 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml, */*",
 }
 
-# X 주요 인사 및 공식 계정 57개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식·네오클라우드 추가)
+# X 주요 인사 및 공식 계정 54개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식·네오클라우드 C급 추가)
 X_VIP_PROFILES = {
     # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (7명)
     "dylan522p": "X ｜ DYLAN PATEL (SEMIANALYSIS)",
@@ -133,14 +133,11 @@ X_VIP_PROFILES = {
     "openrouter": "X ｜ OPENROUTER OFFICIAL",
     "amd": "X ｜ AMD OFFICIAL",
     "intel": "X ｜ INTEL OFFICIAL",
-    # 7. 네오클라우드 (CRWV · NBIS · IREN) 공식 및 C급 임원진 계정 (8개)
-    "coreweave": "X ｜ COREWEAVE OFFICIAL (CRWV)",
+    # 7. 네오클라우드 (CRWV · NBIS · IREN) C급 임원진 계정 (5개)
     "branninmcbee": "X ｜ BRANNIN MCBEE (COREWEAVE CO-FOUNDER · CDO)",
-    "nebiusai": "X ｜ NEBIUS OFFICIAL (NBIS)",
     "romanchernin": "X ｜ ROMAN CHERNIN (NEBIUS CO-FOUNDER · CBO)",
     "marcboroditsky": "X ｜ MARC BORODITSKY (NEBIUS CRO)",
     "sjkirschner": "X ｜ SETH J. KIRSCHNER (NEBIUS FIELD CISO)",
-    "iren_ltd": "X ｜ IREN OFFICIAL (IREN)",
     "danroberts0101": "X ｜ DANIEL ROBERTS (IREN CO-CEO)",
 }
 
@@ -174,7 +171,6 @@ LOW_FREQ_GROUPS = {
     "X-Official-AI",
     "X-Official-OpenRouter",
     "X-Neocloud-CRWV",
-    "X-Neocloud-NBIS",
     "X-Neocloud-NBIS-Exec",
     "X-Neocloud-IREN",
 }
@@ -197,11 +193,10 @@ X_QUERY_GROUPS = [
     ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
     ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
     ("X-Official-OpenRouter", ["OpenRouter"]),
-    # 네오클라우드 (CRWV · NBIS · IREN) 공식 및 C급 임원진 (4개)
-    ("X-Neocloud-CRWV", ["CoreWeave", "branninmcbee"]),
-    ("X-Neocloud-NBIS", ["nebiusai"]),
+    # 네오클라우드 (CRWV · NBIS · IREN) C급 임원진 (3개)
+    ("X-Neocloud-CRWV", ["branninmcbee"]),
     ("X-Neocloud-NBIS-Exec", ["romanchernin", "marcboroditsky", "sjkirschner"]),
-    ("X-Neocloud-IREN", ["IREN_Ltd", "danroberts0101"]),
+    ("X-Neocloud-IREN", ["danroberts0101"]),
     # 반도체·하드웨어 애널리스트 소그룹 (3개)
     ("X-Semi1", ["dylan522p", "mingchikuo", "divestech"]),
     ("X-Semi2", ["benbajarin", "patrickmoorhead"]),
@@ -482,7 +477,7 @@ def _extract_article_text(article: dict, max_chars: int = 4800) -> str:
 
     result = "\n\n".join(parts).strip()
     if truncated:
-        result += "\n\n[이하 전문은 상단 원문 링크 참고]"
+        result += "\n\n[이하 전문은 하단 원문 링크 참고]"
     return result
 
 
@@ -660,7 +655,7 @@ def format_message(profile_label: str, text_ko: str, x_url: str) -> str:
     safe_src = html.escape(profile_label, quote=False)
     safe_body = html.escape(text_ko, quote=False)
     safe_url = html.escape(x_url, quote=True)
-    return f'<a href="{safe_url}"><b>{safe_src}</b></a>\n\n{safe_body}'
+    return f'<b>{safe_src}</b>\n\n{safe_body}\n\n<a href="{safe_url}">원문 보기</a>'
 
 
 def send_telegram(profile_label: str, text_ko: str, x_url: str, dry_run: bool = False) -> bool:
@@ -815,7 +810,7 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
             nl_idx = cut.rfind("\n")
             if nl_idx > 2500:
                 cut = cut[:nl_idx]
-            text_ko = cut.rstrip() + "\n\n...(이하 전문은 상단 원문 링크 참고)"
+            text_ko = cut.rstrip() + "\n\n...(이하 전문은 하단 원문 링크 참고)"
 
         if send_telegram(profile_label, text_ko, final_url, dry_run=dry_run):
             hist["status_ids"].append(sid_str)
