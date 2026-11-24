@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로 주요 인사 및 공식 계정 49곳 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 57곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
-  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 2~3인 소그룹 22개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
+  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 27개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
   2) 키워드 필터 전면 폐지(누락 방지) + 최소 위생 필터만 유지 (빈 리포스트 껍데기·초단문·짧은 답글·스포츠/연예 노이즈만 차단)
   3) X Article(장문 아티클) 블록 추출 지원 + URL 단독 입력 번역 환각 차단 가드레일
   4) X Snowflake 64비트 Status ID 기반 100% 정확한 UTC 발행시각 및 원작성자 핸들 검증
@@ -76,7 +76,7 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml, */*",
 }
 
-# X 주요 인사 및 공식 계정 49개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식 계정 추가)
+# X 주요 인사 및 공식 계정 57개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식·네오클라우드 추가)
 X_VIP_PROFILES = {
     # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (7명)
     "dylan522p": "X ｜ DYLAN PATEL (SEMIANALYSIS)",
@@ -133,6 +133,15 @@ X_VIP_PROFILES = {
     "openrouter": "X ｜ OPENROUTER OFFICIAL",
     "amd": "X ｜ AMD OFFICIAL",
     "intel": "X ｜ INTEL OFFICIAL",
+    # 7. 네오클라우드 (CRWV · NBIS · IREN) 공식 및 C급 임원진 계정 (8개)
+    "coreweave": "X ｜ COREWEAVE OFFICIAL (CRWV)",
+    "branninmcbee": "X ｜ BRANNIN MCBEE (COREWEAVE CO-FOUNDER · CDO)",
+    "nebiusai": "X ｜ NEBIUS OFFICIAL (NBIS)",
+    "romanchernin": "X ｜ ROMAN CHERNIN (NEBIUS CO-FOUNDER · CBO)",
+    "marcboroditsky": "X ｜ MARC BORODITSKY (NEBIUS CRO)",
+    "sjkirschner": "X ｜ SETH J. KIRSCHNER (NEBIUS FIELD CISO)",
+    "iren_ltd": "X ｜ IREN OFFICIAL (IREN)",
+    "danroberts0101": "X ｜ DANIEL ROBERTS (IREN CO-CEO)",
 }
 
 # 초핵심 저빈도 CEO·뉴스룸: 초단문 원글(6자 이상, 예: 'Jensen!', "I'm back.") 및 짧은 답글(25자 이상) 허용
@@ -164,6 +173,10 @@ LOW_FREQ_GROUPS = {
     "X-Official-NVDA",
     "X-Official-AI",
     "X-Official-OpenRouter",
+    "X-Neocloud-CRWV",
+    "X-Neocloud-NBIS",
+    "X-Neocloud-NBIS-Exec",
+    "X-Neocloud-IREN",
 }
 
 # Google News when:2h 무력화 방지를 위해 고빈도 단독(1인) + 소그룹(2~3인) 22개 쿼리로 정밀 분할
@@ -184,6 +197,11 @@ X_QUERY_GROUPS = [
     ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
     ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
     ("X-Official-OpenRouter", ["OpenRouter"]),
+    # 네오클라우드 (CRWV · NBIS · IREN) 공식 및 C급 임원진 (4개)
+    ("X-Neocloud-CRWV", ["CoreWeave", "branninmcbee"]),
+    ("X-Neocloud-NBIS", ["nebiusai"]),
+    ("X-Neocloud-NBIS-Exec", ["romanchernin", "marcboroditsky", "sjkirschner"]),
+    ("X-Neocloud-IREN", ["IREN_Ltd", "danroberts0101"]),
     # 반도체·하드웨어 애널리스트 소그룹 (3개)
     ("X-Semi1", ["dylan522p", "mingchikuo", "divestech"]),
     ("X-Semi2", ["benbajarin", "patrickmoorhead"]),
