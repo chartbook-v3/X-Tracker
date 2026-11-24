@@ -101,7 +101,14 @@
     "2124989372630184215",
     "2125003801186980297",
     "2125011444358131842",
-    "2125020939901362321"
+    "2125020939901362321",
+    "2124894264564092952",
+    "2124926480228422077",
+    "2124941625935667510",
+    "2124957270928732637",
+    "2124987020464329090",
+    "2125007927098699827",
+    "2124980590717911527"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -205,7 +212,14 @@
     "740dce22615bdb5a",
     "6b63f2d78c722b61",
     "c4e9cadafbb4d5be",
-    "9739fafd49c68aaf"
+    "9739fafd49c68aaf",
+    "70c6f47f3a0d6783",
+    "1b890205d958691a",
+    "5b396c92c921763f",
+    "1fbc00ba437a4b40",
+    "2a2af93f2f5233de",
+    "cf07113fa8fa852e",
+    "fabcc1051a70fa54"
   ],
   "recent_titles": [
     "Unequivocal super intelligence has arrived. Welcome to the Singularity.",
@@ -309,6 +323,13 @@
     "New York Fed President John Williams signaled more tightening is coming, but he leaned against steering too heavily to the recent hot inflation readings. • Since the October 28 meeting, the data show the economy \"has remained strong\" and inflation \"has cont",
     "Today marked a major step-up in the US Administration’s modern version of tech-focused “industrial policy,” with repeated references to a “national treasure” CEO, a “national champion” company, and being too big to even wobble. #economy #markets #nvidia",
     "A cool benchmarking effort by @ValsAI to let various decision models run a RollerCoaster Theme Park. Perplexity Decider v1.3 wins. You can use Decider for free in @OpenRouter.",
-    "Active asset managers aggressively rotated out of stocks last week: The NAAIM Exposure Index is down to 51 points, its lowest since April 2025."
+    "Active asset managers aggressively rotated out of stocks last week: The NAAIM Exposure Index is down to 51 points, its lowest since April 2025.",
+    "This is really really good:",
+    "Helios racks are powered in @Microsoft labs. We’re working side by side with @Azure to advance our next-gen rackscale AI platform, with Azure among the first cloud providers bringing Helios to life.",
+    "Unwrap new possibilities. 🎁 From a new game to a creative project or your first robot, find holiday inspiration for the gamers, creators and makers on your list with NVIDIA. Explore the blog:",
+    "An open AI ecosystem creates more opportunities for innovation. Hear how AMD is contributing to @PyTorch and advancing an open AI ecosystem built on collaboration, flexibility, and choice.",
+    "If an AI buys your plane ticket, it shouldn’t come back with a new car. Red Hat’s @kernelcdub explains why AI agents need clear limits. Tomorrow on the NVIDIA AI Podcast.",
+    "In one run, GPT-6 Cyber helped us validate 948 Linux kernel bugs that could grant local root access and generate patches for review.",
+    "We’re introducing Shirudo, an open-source Linux runtime allowing agents to defend systems without downtime. It lets agents write dynamic eBPF controls to shield systems from exploits, giving defenders more time to test and roll out patches."
   ]
 }
