@@ -95,9 +95,8 @@ X_VIP_PROFILES = {
     "schuldensuehner": "X ｜ HOLGER ZSCHAEPITZ (WELT)",
     "charliebilello": "X ｜ CHARLIE BILELLO (CREATIVE PLANNING)",
     "kobeissiletter": "X ｜ THE KOBEISSI LETTER",
-    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (9명)
+    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (8명)
     "karpathy": "X ｜ ANDREJ KARPATHY (OPENAI CO-FOUNDER)",
-    "officiallogank": "X ｜ LOGAN KILPATRICK (GOOGLE DEEPMIND · GEMINI)",
     "andrewyng": "X ｜ ANDREW NG (COURSERA)",
     "ylecun": "X ｜ YANN LECUN (NYU · AMI LABS)",
     "drjimfan": "X ｜ JIM FAN (NVIDIA ROBOTICS)",
@@ -151,7 +150,6 @@ VIP_SHORT_ALLOW_HANDLES = {
     "semianalysis_",
     "dylan522p",
     "zephyr_z9",
-    "officiallogank",
     "googleaistudio",
     "jensenhuang",
     "sama",
@@ -173,7 +171,6 @@ LOW_FREQ_GROUPS = {
     "X-SemiAnalysis",
     "X-DylanPatel",
     "X-Semi-Zephyr",
-    "X-LoganK",
     "X-SamAltman",
     "X-Jensen-Karpathy",
     "X-BigTech1",
@@ -199,7 +196,7 @@ LOW_FREQ_GROUPS = {
     "X-VC2",
 }
 
-# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 27개 그룹(when:1d) = 총 30개 정밀 분할 쿼리
+# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 26개 그룹(when:1d) = 총 29개 정밀 분할 쿼리
 X_QUERY_GROUPS = [
     # 고빈도 실시간 VIP 단독 쿼리 (when:2h)
     ("X-ElonMusk", ["elonmusk"]),
@@ -233,7 +230,6 @@ X_QUERY_GROUPS = [
     ("X-Macro1", ["NickTimiraos", "elerianm", "Schuldensuehner"]),
     ("X-Macro2", ["charliebilello"]),
     # AI 연구자·빌더 소그룹 (when:1d)
-    ("X-LoganK", ["OfficialLoganK"]),
     ("X-AI-Res1", ["AndrewYNg", "ylecun", "DrJimFan"]),
     ("X-AI-Res2", ["emollick", "rowancheung"]),
     ("X-AI-Res3", ["simonw", "_akhaliq"]),
