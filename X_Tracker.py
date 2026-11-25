@@ -78,9 +78,10 @@ HEADERS = {
 
 # X 주요 인사 및 공식 계정 56개 핸들 매핑 (SemiAnalysis 공식 @SemiAnalysis_ 추가)
 X_VIP_PROFILES = {
-    # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (9개)
+    # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (10개)
     "semianalysis_": "X ｜ SEMIANALYSIS",
     "dylan522p": "X ｜ DYLAN PATEL (SEMIANALYSIS)",
+    "zephyr_z9": "X ｜ ZEPHYR (AI · CHIPS)",
     "mingchikuo": "X ｜ MING-CHI KUO (TF INTERNATIONAL)",
     "divestech": "X ｜ DAN IVES (WEDBUSH)",
     "benbajarin": "X ｜ BEN BAJARIN (CREATIVE STRATEGIES)",
@@ -94,8 +95,9 @@ X_VIP_PROFILES = {
     "schuldensuehner": "X ｜ HOLGER ZSCHAEPITZ (WELT)",
     "charliebilello": "X ｜ CHARLIE BILELLO (CREATIVE PLANNING)",
     "kobeissiletter": "X ｜ THE KOBEISSI LETTER",
-    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (8명)
+    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (9명)
     "karpathy": "X ｜ ANDREJ KARPATHY (OPENAI CO-FOUNDER)",
+    "officiallogank": "X ｜ LOGAN KILPATRICK (GOOGLE DEEPMIND · GEMINI)",
     "andrewyng": "X ｜ ANDREW NG (COURSERA)",
     "ylecun": "X ｜ YANN LECUN (NYU · AMI LABS)",
     "drjimfan": "X ｜ JIM FAN (NVIDIA ROBOTICS)",
@@ -126,7 +128,8 @@ X_VIP_PROFILES = {
     "aravsrinivas": "X ｜ ARAVIND SRINIVAS (PERPLEXITY CEO)",
     "alexandr_wang": "X ｜ ALEXANDR WANG (META AI)",
     "clementdelangue": "X ｜ CLEMENT DELANGUE (HUGGING FACE CEO)",
-    # 6. 핵심 빅테크 · 반도체 · AI 공식 계정 (8개)
+    # 6. 핵심 빅테크 · 반도체 · AI 공식 계정 (9개)
+    "googleaistudio": "X ｜ GOOGLE AI STUDIO OFFICIAL",
     "nvidianewsroom": "X ｜ NVIDIA NEWSROOM",
     "nvidia": "X ｜ NVIDIA OFFICIAL",
     "nvidiaai": "X ｜ NVIDIA AI",
@@ -147,6 +150,9 @@ X_VIP_PROFILES = {
 VIP_SHORT_ALLOW_HANDLES = {
     "semianalysis_",
     "dylan522p",
+    "zephyr_z9",
+    "officiallogank",
+    "googleaistudio",
     "jensenhuang",
     "sama",
     "darioamodei",
@@ -166,6 +172,8 @@ LOW_FREQ_MAX_AGE_MINUTES = 1440
 LOW_FREQ_GROUPS = {
     "X-SemiAnalysis",
     "X-DylanPatel",
+    "X-Semi-Zephyr",
+    "X-LoganK",
     "X-SamAltman",
     "X-Jensen-Karpathy",
     "X-BigTech1",
@@ -175,6 +183,7 @@ LOW_FREQ_GROUPS = {
     "X-AI-CEO2",
     "X-Official-NVDA",
     "X-Official-AI",
+    "X-Official-GoogleAI",
     "X-Official-OpenRouter",
     "X-Neocloud-Exec1",
     "X-Neocloud-Exec2",
@@ -190,15 +199,16 @@ LOW_FREQ_GROUPS = {
     "X-VC2",
 }
 
-# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 24개 그룹(when:1d) = 총 27개 정밀 분할 쿼리
+# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 27개 그룹(when:1d) = 총 30개 정밀 분할 쿼리
 X_QUERY_GROUPS = [
     # 고빈도 실시간 VIP 단독 쿼리 (when:2h)
     ("X-ElonMusk", ["elonmusk"]),
     ("X-Kobeissi", ["KobeissiLetter"]),
     ("X-Semi-Jukan", ["jukan05"]),
-    # SemiAnalysis 공식 및 대표 단독 쿼리 (when:1d)
+    # SemiAnalysis 공식 및 반도체 특종 분석가 단독 쿼리 (when:1d)
     ("X-SemiAnalysis", ["SemiAnalysis_"]),
     ("X-DylanPatel", ["dylan522p"]),
+    ("X-Semi-Zephyr", ["zephyr_z9"]),
     # AI · 빅테크 · 반도체 CEO (when:1d)
     ("X-SamAltman", ["sama"]),
     ("X-Jensen-Karpathy", ["jensenhuang", "karpathy"]),
@@ -210,6 +220,7 @@ X_QUERY_GROUPS = [
     # 핵심 공식 계정 소그룹 (when:1d)
     ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
     ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
+    ("X-Official-GoogleAI", ["GoogleAIStudio"]),
     ("X-Official-OpenRouter", ["OpenRouter"]),
     # 네오클라우드 (CRWV · NBIS · IREN) C급 임원진 (when:1d, 2그룹 통합)
     ("X-Neocloud-Exec1", ["branninmcbee", "danroberts0101"]),
@@ -222,6 +233,7 @@ X_QUERY_GROUPS = [
     ("X-Macro1", ["NickTimiraos", "elerianm", "Schuldensuehner"]),
     ("X-Macro2", ["charliebilello"]),
     # AI 연구자·빌더 소그룹 (when:1d)
+    ("X-LoganK", ["OfficialLoganK"]),
     ("X-AI-Res1", ["AndrewYNg", "ylecun", "DrJimFan"]),
     ("X-AI-Res2", ["emollick", "rowancheung"]),
     ("X-AI-Res3", ["simonw", "_akhaliq"]),
