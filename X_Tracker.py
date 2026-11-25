@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 54곳 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 55곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
-  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 26개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
+  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 27개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
   2) 키워드 필터 전면 폐지(누락 방지) + 최소 위생 필터만 유지 (빈 리포스트 껍데기·초단문·짧은 답글·스포츠/연예 노이즈만 차단)
   3) X Article(장문 아티클) 블록 추출 지원 + URL 단독 입력 번역 환각 차단 가드레일
   4) X Snowflake 64비트 Status ID 기반 100% 정확한 UTC 발행시각 및 원작성자 핸들 검증
@@ -76,9 +76,9 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml, */*",
 }
 
-# X 주요 인사 및 공식 계정 54개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식·네오클라우드 C급 추가)
+# X 주요 인사 및 공식 계정 55개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식·네오클라우드 C급 추가)
 X_VIP_PROFILES = {
-    # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (7명)
+    # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (8명)
     "dylan522p": "X ｜ DYLAN PATEL (SEMIANALYSIS)",
     "mingchikuo": "X ｜ MING-CHI KUO (TF INTERNATIONAL)",
     "divestech": "X ｜ DAN IVES (WEDBUSH)",
@@ -86,6 +86,7 @@ X_VIP_PROFILES = {
     "patrickmoorhead": "X ｜ PATRICK MOORHEAD (MOOR INSIGHTS)",
     "iancutress": "X ｜ IAN CUTRESS (CHIP ANALYST)",
     "markgurman": "X ｜ MARK GURMAN (BLOOMBERG)",
+    "jukan05": "X ｜ JUKAN (SEMI · CITRINI)",
     # 2. 거시경제(매크로) · 월가 시장 전략가 (5명)
     "nicktimiraos": "X ｜ NICK TIMIRAOS (WSJ)",
     "elerianm": "X ｜ MOHAMED EL-ERIAN (ALLIANZ)",
@@ -197,10 +198,11 @@ X_QUERY_GROUPS = [
     ("X-Neocloud-CRWV", ["branninmcbee"]),
     ("X-Neocloud-NBIS-Exec", ["romanchernin", "marcboroditsky", "sjkirschner"]),
     ("X-Neocloud-IREN", ["danroberts0101"]),
-    # 반도체·하드웨어 애널리스트 소그룹 (3개)
+    # 반도체·하드웨어 애널리스트 소그룹 (4개)
     ("X-Semi1", ["dylan522p", "mingchikuo", "divestech"]),
     ("X-Semi2", ["benbajarin", "patrickmoorhead"]),
     ("X-Semi3", ["iancutress", "markgurman"]),
+    ("X-Semi-Jukan", ["jukan05"]),
     # 매크로 전략가 소그룹 (2개)
     ("X-Macro1", ["NickTimiraos", "elerianm", "Schuldensuehner"]),
     ("X-Macro2", ["charliebilello"]),
