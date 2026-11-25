@@ -66,7 +66,7 @@ load_local_env()
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "@chartbookx").strip()
 DEFAULT_MAX_AGE_MINUTES = 90
-MAX_SEND_PER_CYCLE = 10
+MAX_SEND_PER_CYCLE = 15
 
 HEADERS = {
     "User-Agent": (
@@ -76,9 +76,10 @@ HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml, */*",
 }
 
-# X 주요 인사 및 공식 계정 55개 핸들 매핑 (비활성 @NorthmanTrader·@IntelNews 제거, 핵심 공식·네오클라우드 C급 추가)
+# X 주요 인사 및 공식 계정 56개 핸들 매핑 (SemiAnalysis 공식 @SemiAnalysis_ 추가)
 X_VIP_PROFILES = {
-    # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (8명)
+    # 1. 반도체 · 하드웨어 · 빅테크 애널리스트 (9개)
+    "semianalysis_": "X ｜ SEMIANALYSIS",
     "dylan522p": "X ｜ DYLAN PATEL (SEMIANALYSIS)",
     "mingchikuo": "X ｜ MING-CHI KUO (TF INTERNATIONAL)",
     "divestech": "X ｜ DAN IVES (WEDBUSH)",
@@ -144,6 +145,8 @@ X_VIP_PROFILES = {
 
 # 초핵심 저빈도 CEO·뉴스룸: 초단문 원글(6자 이상, 예: 'Jensen!', "I'm back.") 및 짧은 답글(25자 이상) 허용
 VIP_SHORT_ALLOW_HANDLES = {
+    "semianalysis_",
+    "dylan522p",
     "jensenhuang",
     "sama",
     "darioamodei",
@@ -158,59 +161,71 @@ VIP_SHORT_ALLOW_HANDLES = {
     "nvidianewsroom",
 }
 
-# 저빈도 최상위 CEO·공식 그룹: Google News 색인 지연 방어용 24시간(1d) 윈도우 적용
+# Google News 색인 지연(1~12시간) 방어용 24시간(1d) 윈도우 적용 그룹 (고빈도 3개 그룹만 2h 유지)
 LOW_FREQ_MAX_AGE_MINUTES = 1440
 LOW_FREQ_GROUPS = {
-    "X-JensenHuang",
+    "X-SemiAnalysis",
+    "X-DylanPatel",
     "X-SamAltman",
-    "X-Karpathy",
+    "X-Jensen-Karpathy",
     "X-BigTech1",
     "X-BigTech2",
     "X-ChipCEO",
     "X-AI-CEO1",
+    "X-AI-CEO2",
     "X-Official-NVDA",
     "X-Official-AI",
     "X-Official-OpenRouter",
-    "X-Neocloud-CRWV",
-    "X-Neocloud-NBIS-Exec",
-    "X-Neocloud-IREN",
+    "X-Neocloud-Exec1",
+    "X-Neocloud-Exec2",
+    "X-Semi1",
+    "X-Semi2",
+    "X-Semi3",
+    "X-Macro1",
+    "X-Macro2",
+    "X-AI-Res1",
+    "X-AI-Res2",
+    "X-AI-Res3",
+    "X-VC1",
+    "X-VC2",
 }
 
-# Google News when:2h 무력화 방지를 위해 고빈도 단독(1인) + 소그룹(2~3인) 22개 쿼리로 정밀 분할
+# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 24개 그룹(when:1d) = 총 27개 정밀 분할 쿼리
 X_QUERY_GROUPS = [
-    # 고빈도 핵심 VIP 단독 쿼리 (5개)
+    # 고빈도 실시간 VIP 단독 쿼리 (when:2h)
     ("X-ElonMusk", ["elonmusk"]),
     ("X-Kobeissi", ["KobeissiLetter"]),
+    ("X-Semi-Jukan", ["jukan05"]),
+    # SemiAnalysis 공식 및 대표 단독 쿼리 (when:1d)
+    ("X-SemiAnalysis", ["SemiAnalysis_"]),
+    ("X-DylanPatel", ["dylan522p"]),
+    # AI · 빅테크 · 반도체 CEO (when:1d)
     ("X-SamAltman", ["sama"]),
-    ("X-JensenHuang", ["jensenhuang"]),
-    ("X-Karpathy", ["karpathy"]),
-    # 빅테크·반도체 CEO 소그룹 (5개)
+    ("X-Jensen-Karpathy", ["jensenhuang", "karpathy"]),
     ("X-BigTech1", ["tim_cook", "sundarpichai", "satyanadella"]),
     ("X-BigTech2", ["ajassy", "finkd", "tobi"]),
     ("X-ChipCEO", ["LisaSu", "AMD", "Intel"]),
     ("X-AI-CEO1", ["gdb", "DarioAmodei", "demishassabis"]),
     ("X-AI-CEO2", ["AravSrinivas", "alexandr_wang", "ClementDelangue"]),
-    # 핵심 공식 계정 소그룹 (3개)
+    # 핵심 공식 계정 소그룹 (when:1d)
     ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
     ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
     ("X-Official-OpenRouter", ["OpenRouter"]),
-    # 네오클라우드 (CRWV · NBIS · IREN) C급 임원진 (3개)
-    ("X-Neocloud-CRWV", ["branninmcbee"]),
-    ("X-Neocloud-NBIS-Exec", ["romanchernin", "marcboroditsky", "sjkirschner"]),
-    ("X-Neocloud-IREN", ["danroberts0101"]),
-    # 반도체·하드웨어 애널리스트 소그룹 (4개)
-    ("X-Semi1", ["dylan522p", "mingchikuo", "divestech"]),
+    # 네오클라우드 (CRWV · NBIS · IREN) C급 임원진 (when:1d, 2그룹 통합)
+    ("X-Neocloud-Exec1", ["branninmcbee", "danroberts0101"]),
+    ("X-Neocloud-Exec2", ["romanchernin", "marcboroditsky", "sjkirschner"]),
+    # 반도체·하드웨어 애널리스트 소그룹 (when:1d)
+    ("X-Semi1", ["mingchikuo", "divestech"]),
     ("X-Semi2", ["benbajarin", "patrickmoorhead"]),
     ("X-Semi3", ["iancutress", "markgurman"]),
-    ("X-Semi-Jukan", ["jukan05"]),
-    # 매크로 전략가 소그룹 (2개)
+    # 매크로 전략가 소그룹 (when:1d)
     ("X-Macro1", ["NickTimiraos", "elerianm", "Schuldensuehner"]),
     ("X-Macro2", ["charliebilello"]),
-    # AI 연구자·빌더 소그룹 (3개)
+    # AI 연구자·빌더 소그룹 (when:1d)
     ("X-AI-Res1", ["AndrewYNg", "ylecun", "DrJimFan"]),
     ("X-AI-Res2", ["emollick", "rowancheung"]),
     ("X-AI-Res3", ["simonw", "_akhaliq"]),
-    # 실리콘밸리 VC 소그룹 (2개)
+    # 실리콘밸리 VC 소그룹 (when:1d)
     ("X-VC1", ["pmarca", "paulg", "garrytan"]),
     ("X-VC2", ["eladgil", "MKBHD"]),
 ]
