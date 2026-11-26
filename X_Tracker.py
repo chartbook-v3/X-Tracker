@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 57곳 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 64곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
-  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 28개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
+  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 31개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
   2) 키워드 필터 전면 폐지(누락 방지) + 최소 위생 필터만 유지 (빈 리포스트 껍데기·초단문·짧은 답글·스포츠/연예 노이즈만 차단)
   3) X Article(장문 아티클) 블록 추출 지원 + URL 단독 입력 번역 환각 차단 가드레일
   4) X Snowflake 64비트 Status ID 기반 100% 정확한 UTC 발행시각 및 원작성자 핸들 검증
@@ -87,14 +87,17 @@ X_VIP_PROFILES = {
     "iancutress": "X ｜ IAN CUTRESS (CHIP ANALYST)",
     "markgurman": "X ｜ MARK GURMAN (BLOOMBERG)",
     "jukan05": "X ｜ JUKAN (SEMI · CITRINI)",
-    # 2. 거시경제(매크로) · 월가 시장 전략가 (5명)
+    # 2. 거시경제(매크로) · 월가 시장 전략가 (6명)
     "nicktimiraos": "X ｜ NICK TIMIRAOS (WSJ)",
     "elerianm": "X ｜ MOHAMED EL-ERIAN (ALLIANZ)",
     "schuldensuehner": "X ｜ HOLGER ZSCHAEPITZ (WELT)",
     "charliebilello": "X ｜ CHARLIE BILELLO (CREATIVE PLANNING)",
     "kobeissiletter": "X ｜ THE KOBEISSI LETTER",
-    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (8명)
+    "gavinsbaker": "X ｜ GAVIN BAKER (ATREIDES MANAGEMENT CIO)",
+    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (10명)
     "karpathy": "X ｜ ANDREJ KARPATHY (OPENAI CO-FOUNDER)",
+    "jeffdean": "X ｜ JEFF DEAN (GOOGLE CHIEF SCIENTIST)",
+    "ilyasut": "X ｜ ILYA SUTSKEVER (SSI CO-FOUNDER)",
     "andrewyng": "X ｜ ANDREW NG (COURSERA)",
     "ylecun": "X ｜ YANN LECUN (NYU · AMI LABS)",
     "drjimfan": "X ｜ JIM FAN (NVIDIA ROBOTICS)",
@@ -102,14 +105,17 @@ X_VIP_PROFILES = {
     "rowancheung": "X ｜ ROWAN CHEUNG (THE RUNDOWN AI)",
     "simonw": "X ｜ SIMON WILLISON (DATASETTE)",
     "_akhaliq": "X ｜ AK (AI PAPER CURATOR)",
-    # 4. 실리콘밸리 VC · 창업가 · 테크 리뷰어 (5명)
+    # 4. 실리콘밸리 VC · 창업가 · 테크 리뷰어 (7명)
     "pmarca": "X ｜ MARC ANDREESSEN (A16Z)",
     "paulg": "X ｜ PAUL GRAHAM (Y COMBINATOR)",
     "garrytan": "X ｜ GARRY TAN (Y COMBINATOR CEO)",
+    "patrickc": "X ｜ PATRICK COLLISON (STRIPE CEO)",
+    "peterthiel": "X ｜ PETER THIEL (FOUNDERS FUND · PALANTIR)",
     "eladgil": "X ｜ ELAD GIL (TECH VC)",
     "mkbhd": "X ｜ MARQUES BROWNLEE (MKBHD)",
-    # 5. 빅테크 · 반도체 · 프론티어 AI 수장 (17명)
+    # 5. 빅테크 · 반도체 · 프론티어 AI 수장 (19명)
     "elonmusk": "X ｜ ELON MUSK (TESLA · XAI · SPACEX)",
+    "jeffbezos": "X ｜ JEFF BEZOS (AMAZON FOUNDER · BLUE ORIGIN)",
     "tim_cook": "X ｜ TIM COOK (APPLE CHAIRMAN)",
     "sundarpichai": "X ｜ SUNDAR PICHAI (GOOGLE CEO)",
     "satyanadella": "X ｜ SATYA NADELLA (MICROSOFT CEO)",
@@ -118,6 +124,7 @@ X_VIP_PROFILES = {
     "finkd": "X ｜ MARK ZUCKERBERG (META CEO)",
     "tobi": "X ｜ TOBI LUTKE (SHOPIFY CEO)",
     "lisasu": "X ｜ LISA SU (AMD CEO)",
+    "jimkxa": "X ｜ JIM KELLER (TENSTORRENT CEO)",
     "jensenhuang": "X ｜ JENSEN HUANG (NVIDIA CEO)",
     "sama": "X ｜ SAM ALTMAN (OPENAI CEO)",
     "gdb": "X ｜ GREG BROCKMAN (OPENAI)",
@@ -149,6 +156,11 @@ VIP_SHORT_ALLOW_HANDLES = {
     "zephyr_z9",
     "googleaistudio",
     "mustafasuleyman",
+    "jeffdean",
+    "ilyasut",
+    "jeffbezos",
+    "jimkxa",
+    "patrickc",
     "jensenhuang",
     "sama",
     "darioamodei",
@@ -171,6 +183,7 @@ LOW_FREQ_GROUPS = {
     "X-Jensen-Karpathy",
     "X-BigTech1",
     "X-BigTech2",
+    "X-BigTech3",
     "X-ChipCEO",
     "X-AI-CEO1",
     "X-AI-CEO2",
@@ -189,11 +202,13 @@ LOW_FREQ_GROUPS = {
     "X-AI-Res1",
     "X-AI-Res2",
     "X-AI-Res3",
+    "X-AI-Res4",
     "X-VC1",
     "X-VC2",
+    "X-VC3",
 }
 
-# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 25개 그룹(when:1d) = 총 28개 정밀 분할 쿼리
+# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 28개 그룹(when:1d) = 총 31개 정밀 분할 쿼리
 X_QUERY_GROUPS = [
     # 고빈도 실시간 VIP 단독 쿼리 (when:2h)
     ("X-ElonMusk", ["elonmusk"]),
@@ -206,6 +221,7 @@ X_QUERY_GROUPS = [
     ("X-Jensen-Karpathy", ["jensenhuang", "karpathy"]),
     ("X-BigTech1", ["tim_cook", "sundarpichai", "satyanadella"]),
     ("X-BigTech2", ["ajassy", "finkd", "tobi"]),
+    ("X-BigTech3", ["JeffBezos", "jimkxa", "patrickc"]),
     ("X-ChipCEO", ["LisaSu", "AMD", "Intel"]),
     ("X-AI-CEO1", ["gdb", "DarioAmodei", "demishassabis"]),
     ("X-AI-CEO2", ["AravSrinivas", "alexandr_wang", "ClementDelangue"]),
@@ -229,9 +245,11 @@ X_QUERY_GROUPS = [
     ("X-AI-Res1", ["AndrewYNg", "ylecun", "DrJimFan"]),
     ("X-AI-Res2", ["emollick", "rowancheung"]),
     ("X-AI-Res3", ["simonw", "_akhaliq"]),
+    ("X-AI-Res4", ["JeffDean", "ilyasut"]),
     # 실리콘밸리 VC 소그룹 (when:1d)
     ("X-VC1", ["pmarca", "paulg", "garrytan"]),
     ("X-VC2", ["eladgil", "MKBHD"]),
+    ("X-VC3", ["GavinSBaker", "peterthiel"]),
 ]
 
 
