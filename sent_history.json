@@ -401,7 +401,8 @@
     "2125952715759268130",
     "2125818830199152949",
     "2125946564715971059",
-    "2125969190268150086"
+    "2125969190268150086",
+    "2125707366989742468"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -810,10 +811,11 @@
     "8ea8739d72eae83f",
     "5d370b9310c6671a",
     "689c0a630be291e2",
-    "342e7e40334dfc89"
+    "342e7e40334dfc89",
+    "742135c35cce5521",
+    "8c85f530625b2564"
   ],
   "recent_titles": [
-    "Now that official results are out, we see that AMD’s Venice competes very well with NVIDIA’s Vera CPU in per-thread performance in SPEC CPU 2026 intrate.",
     "AMD MOGGING NVIDIA ALERT🚨 & NARRATIVE VIOLATION ALERT🚨 NVIDIA spent the whole year marketing (gaslighting) how their Vera CPU is designed for “Agentic tool use calls,” which they claim require high per-thread performance.",
     "To accompany the video from my recent talk at @aiDotEngineer, here's an expanded version of my argument that we've seen three key inflection points with LLM over the past twelve months",
     "sold Nervana to Intel and MosaicML to Databricks. His third company, @unconvai, is building something that looks nothing like a GPU. His argument: AI is now limited by energy, so the number that matters is joules per token.",
@@ -962,6 +964,7 @@
     "Grateful for family, friends, and our Apple teams and customers around the world. Happy Thanksgiving!",
     "Try it inside Perplexity Computer harness",
     "Zhipu IR says GLM-5.5 hasn’t been delayed. December launch, Fable-level performance, per a Chinese sell-side note. That last comment is the most interesting part.",
-    "As always, enjoyed the conversation w @MollySOShea Mostly AI, and somehow AI psychosis, microplastics, Botox, vaping & OF"
+    "As always, enjoyed the conversation w @MollySOShea Mostly AI, and somehow AI psychosis, microplastics, Botox, vaping & OF",
+    "But you can't rigorously test predictions on the live web. It already knows what happened. Leaky setups reward models that cheat."
   ]
 }
