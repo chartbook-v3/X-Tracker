@@ -760,7 +760,7 @@ def is_similar_title(text_en: str, recent_titles: list[str]) -> bool:
     tokens = set(re.findall(r"[a-zA-Z0-9]{2,}", text_en.lower()))
     if len(tokens) < 3:
         return False
-    for prev in recent_titles[-100:]:
+    for prev in recent_titles[-150:]:
         p_tokens = set(re.findall(r"[a-zA-Z0-9]{2,}", prev.lower()))
         if len(p_tokens) < 3:
             continue
@@ -819,6 +819,11 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
         full_en = fetch_full_x_text(handle_low, sid_str) or item["text_en"]
         if not _has_meaningful_text(full_en):
             continue
+        full_hash = hashlib.md5(full_en.lower().encode("utf-8")).hexdigest()[:16]
+        if full_hash in th_set or (full_en != item["text_en"] and is_similar_title(full_en, hist["recent_titles"])):
+            sid_set.add(sid_str)
+            hist["status_ids"].append(sid_str)
+            continue
         text_ko = translate_to_korean(full_en)
         if not _has_meaningful_text(text_ko):
             continue
@@ -832,9 +837,12 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
         if send_telegram(profile_label, text_ko, final_url, dry_run=dry_run):
             hist["status_ids"].append(sid_str)
             hist["title_hashes"].append(t_hash)
+            if full_hash != t_hash:
+                hist["title_hashes"].append(full_hash)
             hist["recent_titles"].append(item["text_en"])
             sid_set.add(sid_str)
             th_set.add(t_hash)
+            th_set.add(full_hash)
             sent_count += 1
             if not dry_run:
                 time.sleep(0.5)
@@ -851,10 +859,58 @@ RELAY_WORKFLOW_ID = "x_tracker.yml"
 RELAY_CIPHERTEXT_HEX = "d98d1546754122c8f7bbcbc55d90fb4efcf8884f1dcd0f3b02e7809e1ea66cb9a6c84dd8b70a1e84"
 
 
-def git_push_history_in_actions() -> None:
+def _merge_history_dicts(base_hist: dict, extra_hist: dict) -> dict:
+    """두 sent_history 사전을 순서 보존 합집합으로 병합합니다."""
+    def _union(a: list, b: list, limit: int) -> list:
+        seen = set()
+        merged = []
+        for item in (a or []) + (b or []):
+            if item not in seen:
+                seen.add(item)
+                merged.append(item)
+        return merged[-limit:]
+
+    return {
+        "status_ids": _union(base_hist.get("status_ids", []), extra_hist.get("status_ids", []), 3000),
+        "title_hashes": _union(base_hist.get("title_hashes", []), extra_hist.get("title_hashes", []), 3000),
+        "recent_titles": _union(base_hist.get("recent_titles", []), extra_hist.get("recent_titles", []), 150),
+    }
+
+
+def sync_latest_history_from_origin() -> None:
+    """Actions 시작 시 queue 대기 중 반영된 최신 origin/main의 sent_history.json을 강제 동기화합니다."""
+    try:
+        r_fetch = subprocess.run(["git", "fetch", "origin", "main"], check=False, capture_output=True)
+        if r_fetch.returncode == 0:
+            subprocess.run(["git", "checkout", "origin/main", "--", "sent_history.json"], check=False, capture_output=True)
+            print("[SYNC] Synced sent_history.json from latest origin/main.")
+    except Exception as e:
+        print(f"[WARN] Startup history sync error: {e}")
+
+
+def git_push_history_in_actions(local_hist: dict | None = None) -> None:
     try:
         subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
         subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], check=False)
+        subprocess.run(["git", "fetch", "origin", "main"], check=False)
+
+        # origin/main 최신 sent_history.json과 로컬 이력을 합집합 병합해 충돌 및 누락 방지
+        remote_show = subprocess.run(
+            ["git", "show", "origin/main:sent_history.json"],
+            check=False,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        if remote_show.returncode == 0 and remote_show.stdout.strip():
+            try:
+                remote_hist = json.loads(remote_show.stdout)
+                cur_local = local_hist if local_hist is not None else load_history()
+                merged = _merge_history_dicts(remote_hist, cur_local)
+                save_history(merged)
+            except Exception:
+                pass
+
         subprocess.run(["git", "add", "sent_history.json"], check=False)
         diff_res = subprocess.run(["git", "diff", "--staged", "--quiet"], check=False)
         if diff_res.returncode != 0:
@@ -884,16 +940,21 @@ def trigger_next_github_workflow() -> None:
             "Accept": "application/vnd.github+json",
             "X-GitHub-Api-Version": "2022-11-28",
         }
+        cur_run_id = os.getenv("GITHUB_RUN_ID", "").strip()
         try:
             r_chk = requests.get(
-                f"https://api.github.com/repos/{RELAY_REPO}/actions/runs?status=queued&per_page=2",
+                f"https://api.github.com/repos/{RELAY_REPO}/actions/runs?per_page=5",
                 headers=headers,
                 verify=False,
                 timeout=(4, 6),
             )
-            if r_chk.status_code == 200 and r_chk.json().get("total_count", 0) > 0:
-                print("[RELAY] Queued run already exists; skipping duplicate dispatch.")
-                return
+            if r_chk.status_code == 200:
+                for run in r_chk.json().get("workflow_runs", []):
+                    if str(run.get("id", "")) == cur_run_id:
+                        continue
+                    if run.get("status") in ("queued", "waiting", "pending", "requested"):
+                        print("[RELAY] Queued run already exists; skipping duplicate dispatch.")
+                        return
         except Exception:
             pass
 
@@ -936,6 +997,9 @@ def main():
         print(f"[TEST-SEND] sent={ok}")
         return
 
+    if os.getenv("GITHUB_ACTIONS") == "true" and not args.dry_run:
+        sync_latest_history_from_origin()
+
     hist = load_history()
 
     if os.getenv("GITHUB_ACTIONS") == "true" and not args.dry_run:
@@ -964,7 +1028,7 @@ def main():
         finally:
             if total_sent > 0:
                 save_history(hist)
-                git_push_history_in_actions()
+                git_push_history_in_actions(hist)
             trigger_next_github_workflow()
     else:
         sent = run_scan_cycle(hist, args.max_age, dry_run=args.dry_run, window=args.window)
