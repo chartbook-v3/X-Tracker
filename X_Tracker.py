@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 55곳 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 57곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
-  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 27개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
+  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 28개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
   2) 키워드 필터 전면 폐지(누락 방지) + 최소 위생 필터만 유지 (빈 리포스트 껍데기·초단문·짧은 답글·스포츠/연예 노이즈만 차단)
   3) X Article(장문 아티클) 블록 추출 지원 + URL 단독 입력 번역 환각 차단 가드레일
   4) X Snowflake 64비트 Status ID 기반 100% 정확한 UTC 발행시각 및 원작성자 핸들 검증
@@ -108,11 +108,12 @@ X_VIP_PROFILES = {
     "garrytan": "X ｜ GARRY TAN (Y COMBINATOR CEO)",
     "eladgil": "X ｜ ELAD GIL (TECH VC)",
     "mkbhd": "X ｜ MARQUES BROWNLEE (MKBHD)",
-    # 5. 빅테크 · 반도체 · 프론티어 AI 수장 (16명)
+    # 5. 빅테크 · 반도체 · 프론티어 AI 수장 (17명)
     "elonmusk": "X ｜ ELON MUSK (TESLA · XAI · SPACEX)",
     "tim_cook": "X ｜ TIM COOK (APPLE CHAIRMAN)",
     "sundarpichai": "X ｜ SUNDAR PICHAI (GOOGLE CEO)",
     "satyanadella": "X ｜ SATYA NADELLA (MICROSOFT CEO)",
+    "mustafasuleyman": "X ｜ MUSTAFA SULEYMAN (MICROSOFT AI CEO)",
     "ajassy": "X ｜ ANDY JASSY (AMAZON CEO)",
     "finkd": "X ｜ MARK ZUCKERBERG (META CEO)",
     "tobi": "X ｜ TOBI LUTKE (SHOPIFY CEO)",
@@ -147,6 +148,7 @@ X_VIP_PROFILES = {
 VIP_SHORT_ALLOW_HANDLES = {
     "zephyr_z9",
     "googleaistudio",
+    "mustafasuleyman",
     "jensenhuang",
     "sama",
     "darioamodei",
@@ -172,6 +174,7 @@ LOW_FREQ_GROUPS = {
     "X-ChipCEO",
     "X-AI-CEO1",
     "X-AI-CEO2",
+    "X-AI-CEO3",
     "X-Official-NVDA",
     "X-Official-AI",
     "X-Official-GoogleAI",
@@ -190,7 +193,7 @@ LOW_FREQ_GROUPS = {
     "X-VC2",
 }
 
-# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 24개 그룹(when:1d) = 총 27개 정밀 분할 쿼리
+# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 25개 그룹(when:1d) = 총 28개 정밀 분할 쿼리
 X_QUERY_GROUPS = [
     # 고빈도 실시간 VIP 단독 쿼리 (when:2h)
     ("X-ElonMusk", ["elonmusk"]),
@@ -206,6 +209,7 @@ X_QUERY_GROUPS = [
     ("X-ChipCEO", ["LisaSu", "AMD", "Intel"]),
     ("X-AI-CEO1", ["gdb", "DarioAmodei", "demishassabis"]),
     ("X-AI-CEO2", ["AravSrinivas", "alexandr_wang", "ClementDelangue"]),
+    ("X-AI-CEO3", ["mustafasuleyman"]),
     # 핵심 공식 계정 소그룹 (when:1d)
     ("X-Official-NVDA", ["nvidianewsroom", "nvidia", "nvidiaai"]),
     ("X-Official-AI", ["OpenAI", "AnthropicAI"]),
