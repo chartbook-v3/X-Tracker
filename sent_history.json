@@ -345,7 +345,9 @@
     "2125749170510401854",
     "2125755319565635742",
     "2125762207434654042",
-    "2125769316427784671"
+    "2125769316427784671",
+    "2125763140314882385",
+    "2125791910543360088"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -693,11 +695,11 @@
     "3d85b4f999d8c591",
     "9ae980f04a8cd539",
     "b7a3a21a70d69e63",
-    "8df986ebf66d3b8b"
+    "8df986ebf66d3b8b",
+    "473c481be4402882",
+    "e268df1e76dadd8c"
   ],
   "recent_titles": [
-    "Reminder this is a global buildout not a local one. via MS.",
-    "We've passed 120B tokens of Gemini 4 Neon usage inside Perplexity, doubling daily token volume in just 3 days. Monday (yesterday) alone was 36B.",
     "We’re sharing a new preprint showing wet lab validation of intrinsic protein design capabilities of the GPT-6 family of models.",
     "Well to be fair most GW data centers are multiple buildings of 100s of MW not one giant GW scale building. This trend likely continues.",
     "In a separate experiment, GPT-6.2 designed new sequences for three shapes it had previously designed. 14 of 107 proteins made with the new sequences showed binding in the wet lab. GPT-6.2 also redesigned the parts of antibodies that grip a target.",
@@ -845,6 +847,8 @@
     "It's definitely not via a model graph compiler. The agent is the compiler now LMFAO",
     "This is a neat use case for AI. Creating custom visuals vs. just searching for what may or may not be there.",
     "How would the Warsh Fed address market signals saying financial conditions are tightening, with an inflation picture that still looks uncomfortably hot?",
-    "It’s impossible to spend two hours having more fun than watching Netflix’s new Rob Lowe doc. 10/10"
+    "It’s impossible to spend two hours having more fun than watching Netflix’s new Rob Lowe doc. 10/10",
+    "Before he became Fed chairman, Kevin Warsh spoke about the value of market signals and the risks of reacting too much to investors' whims.",
+    "It's incredible how good Astra 6.2 is at so many domains such as material science, hardware design, RSI, chip design, finance, legal. While also being really bad at software engineering relative to the leading models."
   ]
 }
