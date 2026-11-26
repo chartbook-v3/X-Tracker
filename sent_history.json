@@ -362,7 +362,8 @@
     "2125707377093824585",
     "2125752978787454988",
     "2125707369049194508",
-    "2125707374988300306"
+    "2125707374988300306",
+    "2125831416491692310"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -727,10 +728,10 @@
     "3d06f67796165fdc",
     "1172761f6c9e35e9",
     "8ec4b601cff45659",
-    "70697c199190a907"
+    "70697c199190a907",
+    "2fce90ff9d35e357"
   ],
   "recent_titles": [
-    "This is a proof of concept. Next, we want to test whether these proteins do something useful after attaching, tackle harder targets, and extend the work to other types of molecules.",
     "Don’t mess with 𝕏",
     "Starlink is now approved in 30 of 54 countries in Africa!",
     "GPT-6.2 Astra is great at performance optimization:",
@@ -879,6 +880,7 @@
     "A publication date alone doesn't prove that the cutoff held. For example, an article from before an election can be updated later to name the winner.",
     "We will take a look, thanks for flagging",
     "Basically, you need the internet frozen on a specific date. Every time we crawl a page, we keep a dated copy. Set snapshot_as_of, and search and page reads only see copies from that date or earlier.",
-    "We compared Time Machine and Exa Snapshot on three sets of 1,000 queries each: a random sample of Time Machine queries, news queries, and queries from prediction-market research."
+    "We compared Time Machine and Exa Snapshot on three sets of 1,000 queries each: a random sample of Time Machine queries, news queries, and queries from prediction-market research.",
+    "Microsoft is such an interesting case."
   ]
 }
