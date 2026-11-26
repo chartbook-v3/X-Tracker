@@ -372,7 +372,8 @@
     "2125831567981297892",
     "2125804503823765979",
     "2125806068374646997",
-    "2125763235718541371"
+    "2125763235718541371",
+    "2125658710831735267"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -747,10 +748,10 @@
     "3b2a9f670263b22b",
     "a9f4b3c3ec22ad20",
     "b094d0ea29f0c4b2",
-    "0287b065df1ed930"
+    "0287b065df1ed930",
+    "e22b5ae26ae3077d"
   ],
   "recent_titles": [
-    "From the Financial Times. #markets #stocks #investing #investors @ft",
     "Interesting",
     "The US National Debt has now increased by over $1.3 trillion since July 1st. The Federal Government is borrowing from our future to spend money like drunken sailors today.",
     "AI is helping us discover better ways to compute, and understand the fundamental limits of computation. AI for science is about creating new knowledge about the world. Excited to make this kind of discovery capability available more broadly.",
@@ -899,6 +900,7 @@
     "towards more deeply understanding the universe",
     "No we cover the future domains of growth primarily. Software engineering is 1 domain",
     "Fair. Idk what slow is just many slack agents in parallel in different threads. I never run out of threads to move forward in",
-    "Do you do any of the things this benchmark measures besides software engineering where it doesn't do that good on this benchmark."
+    "Do you do any of the things this benchmark measures besides software engineering where it doesn't do that good on this benchmark.",
+    "This comes as no surprise to existing Trainium3 customers like Anthropic, which has deployed Trainium at massive scale for Claude production inference, along with other workloads. (3/5)"
   ]
 }
