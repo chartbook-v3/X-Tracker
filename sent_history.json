@@ -363,7 +363,8 @@
     "2125752978787454988",
     "2125707369049194508",
     "2125707374988300306",
-    "2125831416491692310"
+    "2125831416491692310",
+    "2125832205301878841"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -729,10 +730,10 @@
     "1172761f6c9e35e9",
     "8ec4b601cff45659",
     "70697c199190a907",
-    "2fce90ff9d35e357"
+    "2fce90ff9d35e357",
+    "2b1245e0298a294e"
   ],
   "recent_titles": [
-    "Don’t mess with 𝕏",
     "Starlink is now approved in 30 of 54 countries in Africa!",
     "GPT-6.2 Astra is great at performance optimization:",
     "GPT-6.2 Astra is incredible for 3D:",
@@ -881,6 +882,7 @@
     "We will take a look, thanks for flagging",
     "Basically, you need the internet frozen on a specific date. Every time we crawl a page, we keep a dated copy. Set snapshot_as_of, and search and page reads only see copies from that date or earlier.",
     "We compared Time Machine and Exa Snapshot on three sets of 1,000 queries each: a random sample of Time Machine queries, news queries, and queries from prediction-market research.",
-    "Microsoft is such an interesting case."
+    "Microsoft is such an interesting case.",
+    "The share from SpaceX will be transferred next month. The share directly from me will be transferred when my lockup expires in June next year."
   ]
 }
