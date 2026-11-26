@@ -353,7 +353,8 @@
     "2125797953965072554",
     "2125488568101736872",
     "2125812805534183923",
-    "2125816458911600681"
+    "2125816458911600681",
+    "2125747518655140252"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -709,10 +710,10 @@
     "0eb1916def7b26e3",
     "3a9c1e6425c0f7a0",
     "f66dccfe28ea7841",
-    "ebdd71052934b1a0"
+    "ebdd71052934b1a0",
+    "fc7b6636c6ddbd33"
   ],
   "recent_titles": [
-    "Is that a lot? Asking for a friend.",
     "The best way to know if you new models will work well for your tasks is to actually test them on your tasks. Here's an easy way to have your agent do that on OpenRouter with the generation/content endpoint.",
     "Also, no growth through free subsidies here. Model usage on both Ask and Computer is paid for by users.",
     "Example prompt: \"Pull the stored prompt for generation via /api/v1/generation/content?id=, rerun it on openai/gpt-6.2-sol, and compare the answer and cost (from /api/v1/generation?id=) against what we are currently running.\"",
@@ -861,6 +862,7 @@
     "ALERT🚨🚨: TokenSpeed pushes Muse Spark Open on @AIatAMD MI355X out to 645 tok/s/user P90 interactivity on the official SemiAnalysis InferenceX AgentX benchmark. At the throughput end, it reaches 48.9K total tok/s per GPU at conc 40 on 4× MI355X.",
     "excited to work with Fujitsu on cyberdefense",
     "Model names and numbers have never been less useful in determining ability levels.",
-    "Yeah this is pretty great"
+    "Yeah this is pretty great",
+    "We also tested an abliterated Kimi K3.1 Pro post-trained to stop refusing offensive security work. It scored 14.8% on our cybersecurity tasks vs 18.5% for the original."
   ]
 }
