@@ -356,7 +356,8 @@
     "2125816458911600681",
     "2125747518655140252",
     "2125816545897312752",
-    "2125819897167171836"
+    "2125819897167171836",
+    "2125824585027272727"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -715,10 +716,10 @@
     "ebdd71052934b1a0",
     "fc7b6636c6ddbd33",
     "f204f8d066c11012",
-    "287e1e60d5b1a8fe"
+    "287e1e60d5b1a8fe",
+    "03313c0a28327325"
   ],
   "recent_titles": [
-    "Example prompt: \"Pull the stored prompt for generation via /api/v1/generation/content?id=, rerun it on openai/gpt-6.2-sol, and compare the answer and cost (from /api/v1/generation?id=) against what we are currently running.\"",
     "BREAKING: President Trump says he is willing to pardon Nvidia, $NVDA, CEO Jensen Huang “if necessary,” per NY Post. Trump also tells Jensen Huang not to plead the 5th at his congressional testimony next week.",
     "Gold is down over 37% from its all-time high in January, its largest correction since 2015.",
     "Perplexity is turning into a work operating system. Slide decks you create in Perplexity Computer now have a native viewer that allows you to edit in place. Supports both PowerPoint and Google Slides.",
@@ -867,6 +868,7 @@
     "Yeah this is pretty great",
     "We also tested an abliterated Kimi K3.1 Pro post-trained to stop refusing offensive security work. It scored 14.8% on our cybersecurity tasks vs 18.5% for the original.",
     "Neon has doubled day over day usage on Perplexity (no default model routing), doing 100B+ tokens in a single day. It’s rare to see such an exponential growth for a model.",
-    "South Korean media report that the government is considering at least doubling the size of its stock market stabilization fund, from ₩10.7 trillion to ₩20 trillion or more."
+    "South Korean media report that the government is considering at least doubling the size of its stock market stabilization fund, from ₩10.7 trillion to ₩20 trillion or more.",
+    "Private Inference — confidential computing, with strict controls over prompts and responses while they're being processed by a model, is now in testing:"
   ]
 }
