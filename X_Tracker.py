@@ -33,7 +33,12 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 if sys.platform == "win32":
     try:
-        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stdout.reconfigure(encoding="utf-8", line_buffering=True)
+    except Exception:
+        pass
+else:
+    try:
+        sys.stdout.reconfigure(line_buffering=True)
     except Exception:
         pass
 
@@ -778,7 +783,7 @@ def is_similar_title(text_en: str, recent_titles: list[str]) -> bool:
     return False
 
 
-def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str = "2h") -> int:
+def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str = "2h", deadline: float | None = None) -> int:
     sid_set = set(hist["status_ids"])
     th_set = set(hist["title_hashes"])
     candidates = []
@@ -799,6 +804,9 @@ def run_scan_cycle(hist: dict, max_age_minutes: int, dry_run: bool, window: str 
     now_utc = datetime.now(timezone.utc)
     sent_count = 0
     for item in candidates:
+        if deadline is not None and time.time() >= deadline:
+            print("[WARN] Safety budget reached inside scan cycle; stopping early to preserve relay.")
+            break
         if sent_count >= MAX_SEND_PER_CYCLE:
             break
         t_hash = hashlib.md5(item["text_en"].lower().encode("utf-8")).hexdigest()[:16]
@@ -894,14 +902,28 @@ def trigger_next_github_workflow() -> None:
         }
         try:
             r_chk = requests.get(
-                f"https://api.github.com/repos/{RELAY_REPO}/actions/runs?status=queued&per_page=2",
+                f"https://api.github.com/repos/{RELAY_REPO}/actions/runs?status=queued&per_page=10",
                 headers=headers,
                 verify=False,
                 timeout=(4, 6),
             )
-            if r_chk.status_code == 200 and r_chk.json().get("total_count", 0) > 0:
-                print("[RELAY] Queued run already exists; skipping duplicate dispatch.")
-                return
+            if r_chk.status_code == 200:
+                now_utc = datetime.now(timezone.utc)
+                has_fresh_queued = False
+                for q_run in r_chk.json().get("workflow_runs", []):
+                    ca = q_run.get("created_at")
+                    if not ca:
+                        continue
+                    try:
+                        ca_dt = datetime.fromisoformat(ca.replace("Z", "+00:00"))
+                        if (now_utc - ca_dt).total_seconds() < 600:
+                            has_fresh_queued = True
+                            break
+                    except Exception:
+                        pass
+                if has_fresh_queued:
+                    print("[RELAY] Queued run already exists; skipping duplicate dispatch.")
+                    return
         except Exception:
             pass
 
@@ -957,7 +979,13 @@ def main():
                     break
                 cycle_start = time.time()
                 print(f"[CYCLE {idx + 1}/{burst_cycles}] scanning X VIPs...")
-                sent = run_scan_cycle(hist, args.max_age, dry_run=False, window=args.window)
+                sent = run_scan_cycle(
+                    hist,
+                    args.max_age,
+                    dry_run=False,
+                    window=args.window,
+                    deadline=actions_deadline - 20.0,
+                )
                 total_sent += sent
                 if sent > 0:
                     save_history(hist)
