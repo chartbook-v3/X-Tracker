@@ -27,6 +27,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 1
 
       - name: Set up Python 3.11
@@ -43,6 +44,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: '@chartbookx'
         run: |
+          git fetch origin main && git reset --hard origin/main
           if [ "${{ inputs.test_send }}" = "true" ]; then
             python X_Tracker.py --test-send
           else
