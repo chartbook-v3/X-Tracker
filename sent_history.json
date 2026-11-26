@@ -357,7 +357,10 @@
     "2125747518655140252",
     "2125816545897312752",
     "2125819897167171836",
-    "2125824585027272727"
+    "2125824585027272727",
+    "2125707372761088490",
+    "2125707377093824585",
+    "2125752978787454988"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -717,12 +720,12 @@
     "fc7b6636c6ddbd33",
     "f204f8d066c11012",
     "287e1e60d5b1a8fe",
-    "03313c0a28327325"
+    "03313c0a28327325",
+    "79792634103fcc24",
+    "3d06f67796165fdc",
+    "1172761f6c9e35e9"
   ],
   "recent_titles": [
-    "BREAKING: President Trump says he is willing to pardon Nvidia, $NVDA, CEO Jensen Huang “if necessary,” per NY Post. Trump also tells Jensen Huang not to plead the 5th at his congressional testimony next week.",
-    "Gold is down over 37% from its all-time high in January, its largest correction since 2015.",
-    "Perplexity is turning into a work operating system. Slide decks you create in Perplexity Computer now have a native viewer that allows you to edit in place. Supports both PowerPoint and Google Slides.",
     "The story here is looking like a story in robotics and 3D design. The latest frontier models have a tremendous general capability for diverse hard problems that we used to think would require specialized models or approaches.",
     "BREAKING: President Trump says the US government could take an equity stake in Nvidia, $NVDA. “It’s probably not too late,” President Trump says.",
     "This is a proof of concept. Next, we want to test whether these proteins do something useful after attaching, tackle harder targets, and extend the work to other types of molecules.",
@@ -869,6 +872,9 @@
     "We also tested an abliterated Kimi K3.1 Pro post-trained to stop refusing offensive security work. It scored 14.8% on our cybersecurity tasks vs 18.5% for the original.",
     "Neon has doubled day over day usage on Perplexity (no default model routing), doing 100B+ tokens in a single day. It’s rare to see such an exponential growth for a model.",
     "South Korean media report that the government is considering at least doubling the size of its stock market stabilization fund, from ₩10.7 trillion to ₩20 trillion or more.",
-    "Private Inference — confidential computing, with strict controls over prompts and responses while they're being processed by a model, is now in testing:"
+    "Private Inference — confidential computing, with strict controls over prompts and responses while they're being processed by a model, is now in testing:",
+    "We tried it on 2026 Polymarket questions with GLM-5.3 Flash. Trained on the live web, about 90% of training groups taught the model nothing because it could just look up the answer.",
+    "A publication date alone doesn't prove that the cutoff held. For example, an article from before an election can be updated later to name the winner.",
+    "We will take a look, thanks for flagging"
   ]
 }
