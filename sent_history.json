@@ -350,7 +350,8 @@
     "2125791910543360088",
     "2125797463047258119",
     "2125799278782431401",
-    "2125797953965072554"
+    "2125797953965072554",
+    "2125488568101736872"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -703,10 +704,10 @@
     "e268df1e76dadd8c",
     "78e7452cb497aef9",
     "2a97272de7c37cc6",
-    "0eb1916def7b26e3"
+    "0eb1916def7b26e3",
+    "3a9c1e6425c0f7a0"
   ],
   "recent_titles": [
-    "GPT-6 for designing new protein shapes and sequences — no bio-specific model required. Another example of the unreasonable effectiveness of reasoning and code to solve problems universally.",
     "China’s housing market is getting crushed. YoY, China’s new home prices fell -2.4% last month, marking their 40th consecutive decline. New home prices in 70 Chinese cities, excluding state-subsidized housing, fell -0.2% MoM in October.",
     "Performance improved across model generations. In computer tests, an internal research model matched or outperformed specialized models on many protein tasks, including designing shapes and predicting how molecules fit together.",
     "Is that a lot? Asking for a friend.",
@@ -855,6 +856,7 @@
     "It's incredible how good Astra 6.2 is at so many domains such as material science, hardware design, RSI, chip design, finance, legal. While also being really bad at software engineering relative to the leading models.",
     "Every child in America will receive two SpaceX shares, one from the company and one from me personally",
     "According to unconfirmed accounts, senior Micron executives have said the company could put NT$1.6 trillion (US$48.5 billion) in planned follow-on investment in Taiwan on hold if the labor dispute at Micron Taiwan continues.",
-    "ALERT🚨🚨: TokenSpeed pushes Muse Spark Open on @AIatAMD MI355X out to 645 tok/s/user P90 interactivity on the official SemiAnalysis InferenceX AgentX benchmark. At the throughput end, it reaches 48.9K total tok/s per GPU at conc 40 on 4× MI355X."
+    "ALERT🚨🚨: TokenSpeed pushes Muse Spark Open on @AIatAMD MI355X out to 645 tok/s/user P90 interactivity on the official SemiAnalysis InferenceX AgentX benchmark. At the throughput end, it reaches 48.9K total tok/s per GPU at conc 40 on 4× MI355X.",
+    "excited to work with Fujitsu on cyberdefense"
   ]
 }
