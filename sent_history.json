@@ -458,7 +458,8 @@
     "2126044241709412791",
     "2126206413068480876",
     "2126216169623535632",
-    "2126228720918687794"
+    "2126228720918687794",
+    "2126275511076708534"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -951,10 +952,11 @@
     "725ce146d716b55b",
     "8678114c4f104a98",
     "15b9d49fb192ed23",
-    "8a163a7424579767"
+    "8a163a7424579767",
+    "24de9e6a05cb12cc",
+    "116da269dbe12868"
   ],
   "recent_titles": [
-    "I don't think I'd heard the word \"hyperstitioning\" before, but it's a good one.",
     "Financial research is best done using Multiagent on Perplexity Computer. Fable orchestrates Neon, Opus and Sol to get the job done.",
     "It's only been two weeks? I've made 194 commits to my open source projects that were co-authored by Fable 5.2",
     "Can't wait for this honestly. Analyzing this is going to be so much fun.",
@@ -1103,6 +1105,7 @@
     "It’s meant for business and enterprise use cases, yes",
     "Korean media report that MediaTek’s name has come up as a potential partner for the SerDes and custom HBM base die in Google’s TPU v10. The TPU v10 will reportedly pack 512 GB of HBM5.",
     "Yup, a breakthrough in encryption has likely happened",
-    "In its base case, TrendForce expects conventional DRAM contract prices to rise at a progressively slower pace throughout 2027. Prices could level off in 2H27 before starting to decline in 2028. The base case reflects several demand-side factors."
+    "In its base case, TrendForce expects conventional DRAM contract prices to rise at a progressively slower pace throughout 2027. Prices could level off in 2H27 before starting to decline in 2028. The base case reflects several demand-side factors.",
+    "BREAKING: The US Air Force's flagship cloud computing platform has been hacked in a development that could “jeopardize” sensitive tactical, personnel, and logistics data, per Reuters."
   ]
 }
