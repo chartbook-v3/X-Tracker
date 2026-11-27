@@ -482,7 +482,9 @@
     "2126376500584702103",
     "2126388636325499201",
     "2126390700660920546",
-    "2126398247552037042"
+    "2126398247552037042",
+    "2126397498071670827",
+    "2126401401831985156"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1014,11 +1016,13 @@
     "7bb65ff44893cbc5",
     "190803abb687ebf4",
     "b978e0034787d6f1",
-    "f3b9e1b9b77e27d2"
+    "f3b9e1b9b77e27d2",
+    "894aabc2957d476f",
+    "ed410f3d45103c67",
+    "d628d9ff7975c561",
+    "9b1f8773c2395abe"
   ],
   "recent_titles": [
-    "Look at the website. We have run tons of TPUv7 benchmarks across different models. InferenceX is the only benchmark in the world with TPUv7, Trainium, AMD, NVIDIA, OpenAI Jalapeño, Rubin, etc.",
-    "We're building a time machine for the internet. Perplexity Time Machine shows a model the web exactly as it was on any date you pick. This allows you to post-train agents that can be good at predicting the future.",
     "If your Thanksgiving tradition involves seeing how much dessert you can balance on one plate, this one's for you:) One More Pie is a 3D stacker game prompted into existence using @tryplayground, our experimental platform that lets you build web games with",
     "We will soon be offering this in the form of time snapshotted sandboxes that a post training experiment can just spin up and use for both rollouts and evals.",
     "GPT-6.2 Astra debuts at the top of the GDPx leaderboard scoring 19.3%, ahead of Claude Fable 5.2 at 16.4%. Gemini 4 Neon, the model of the moment, lands 6th at 10.1%. (1/9)🧵",
@@ -1166,6 +1170,8 @@
     "My observation is that giving money to “non-profits” rarely benefits the people and often results in hurting civilization by creating a self-perpetuating “cause of the day” bureaucracy that cares only about getting more money.",
     "Grok Bot is great at finding you the best deals on the Internet",
     "Grok Build upgrades",
-    "Beautiful engineering"
+    "Beautiful engineering",
+    "Every model has its strengths and weaknesses. Grok @Bot aims to use whichever one does the best job for the task you give it! Neon is looking particularly promising, but Opus is also excellent in most cases.",
+    "Banking conditions are tightening in the US: A net 30% of leaders from the banking sector and lending institutions across the Fed's 8th District reported lower loan demand in the current quarter, according to the Fed Economic Conditions Survey."
   ]
 }
