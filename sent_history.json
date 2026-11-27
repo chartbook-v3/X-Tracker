@@ -481,7 +481,8 @@
     "2126375863121834116",
     "2126376500584702103",
     "2126388636325499201",
-    "2126390700660920546"
+    "2126390700660920546",
+    "2126398247552037042"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1012,10 +1013,10 @@
     "4d185cecd7b15f9e",
     "7bb65ff44893cbc5",
     "190803abb687ebf4",
-    "b978e0034787d6f1"
+    "b978e0034787d6f1",
+    "f3b9e1b9b77e27d2"
   ],
   "recent_titles": [
-    "We will benchmark Trainium4 too. Trainium3 is more comparable to Blackwell Ultra.",
     "Look at the website. We have run tons of TPUv7 benchmarks across different models. InferenceX is the only benchmark in the world with TPUv7, Trainium, AMD, NVIDIA, OpenAI Jalapeño, Rubin, etc.",
     "We're building a time machine for the internet. Perplexity Time Machine shows a model the web exactly as it was on any date you pick. This allows you to post-train agents that can be good at predicting the future.",
     "If your Thanksgiving tradition involves seeing how much dessert you can balance on one plate, this one's for you:) One More Pie is a 3D stacker game prompted into existence using @tryplayground, our experimental platform that lets you build web games with",
@@ -1164,6 +1165,7 @@
     "BREAKING: The S&P 500 rises +1.6% to close at its highest level since November 18th. The index added +$1 trillion worth of market cap today.",
     "My observation is that giving money to “non-profits” rarely benefits the people and often results in hurting civilization by creating a self-perpetuating “cause of the day” bureaucracy that cares only about getting more money.",
     "Grok Bot is great at finding you the best deals on the Internet",
-    "Grok Build upgrades"
+    "Grok Build upgrades",
+    "Beautiful engineering"
   ]
 }
