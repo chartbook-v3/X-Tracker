@@ -479,7 +479,8 @@
     "2126366130105377156",
     "2126358533386190905",
     "2126375863121834116",
-    "2126376500584702103"
+    "2126376500584702103",
+    "2126388636325499201"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1008,10 +1009,10 @@
     "c1db6cf3281709e8",
     "1444d53182dd29d7",
     "4d185cecd7b15f9e",
-    "7bb65ff44893cbc5"
+    "7bb65ff44893cbc5",
+    "190803abb687ebf4"
   ],
   "recent_titles": [
-    "I was today years old when I realized so many people don't understand the difference between GPU training economics and inference economics.",
     "New Episode of Signal or Noise... From FOMO to Fear: The Upside of Downside w/ @PeterMallouk Have a happy Thanksgiving everyone! Vodio:",
     "We will benchmark Trainium4 too. Trainium3 is more comparable to Blackwell Ultra.",
     "Look at the website. We have run tons of TPUv7 benchmarks across different models. InferenceX is the only benchmark in the world with TPUv7, Trainium, AMD, NVIDIA, OpenAI Jalapeño, Rubin, etc.",
@@ -1160,6 +1161,7 @@
     "Global Central Bank Update: -South Korea hiked rates for the 3rd time this year, 25 bps move up to 3.25%. Policymakers signaled more hikes to come.",
     "Extremely satisfying to watch",
     "BREAKING: The S&P 500 rises +1.6% to close at its highest level since November 18th. The index added +$1 trillion worth of market cap today.",
-    "My observation is that giving money to “non-profits” rarely benefits the people and often results in hurting civilization by creating a self-perpetuating “cause of the day” bureaucracy that cares only about getting more money."
+    "My observation is that giving money to “non-profits” rarely benefits the people and often results in hurting civilization by creating a self-perpetuating “cause of the day” bureaucracy that cares only about getting more money.",
+    "Grok Bot is great at finding you the best deals on the Internet"
   ]
 }
