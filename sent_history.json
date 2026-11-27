@@ -465,7 +465,8 @@
     "2126304264553144509",
     "2126311579918405919",
     "2126147093488128161",
-    "2126310099475956175"
+    "2126310099475956175",
+    "2126306994659496399"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -970,10 +971,11 @@
     "eb8bc5f58a32ae8e",
     "ff375485d05a6619",
     "c24944ed02ed5d99",
-    "323ccb1833b14c91"
+    "323ccb1833b14c91",
+    "d86a1af577238002",
+    "ce587edc2f779dc3"
   ],
   "recent_titles": [
-    "AI chip (GPU / TPU) shipments are limited by several factors. But estimating shipment volume from just infrastructure power supply and max chip power (TDP) oversimplifies things and ignores how it actually works in practice. Here's why: 1.",
     "No, I do not believe that we should “surrender human free will” to AI systems, and it’s absurd to suggest that I do.",
     "AgentX captures the four elements of an agentic workload: 🟠 Multi-turn: A session includes many user/assistant interactions (tens or hundreds), compared to a handful in a chatbot scenario. 🟠 Long context: System prompts, tool definitions, and the large numbe",
     "BREAKING NEWS: Amazon has submitted its FIRST Trainium3 UltraServer results to our Agentic Inference Benchmark and has demonstrated 2.28x better perf per dollar than even GB300 NVL72, B300, and MI355, thanks to its wide EP-based approach for ext",
@@ -1122,6 +1124,7 @@
     "BREAKING: S&P 500 is on track for a 4th consecutive week with a return of at least 2.5% in either direction, its longest such streak since the 2022 bear market.",
     "BREAKING: US consumers spent $7.1 billion online on Thanksgiving Day, up +10.4% year-over-year and above expectations, per Adobe data.",
     "I've built education tools used by tens of thousands of people even before AI, and I can tell you that you are wrong about both me and what can be done Also you are just listing a bunch of problems and suggesting they cannot be solved, whi",
-    "15 year olds in California may to have to ride in a booster seat starting in January? We're now well into the territory of self-parody. This law should go."
+    "15 year olds in California may to have to ride in a booster seat starting in January? We're now well into the territory of self-parody. This law should go.",
+    "I see a watch in an Italian auction with a suspiciously perfect dial. I email them to ask it if it's been restored. They reply that they don't feature restored dials."
   ]
 }
