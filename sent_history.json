@@ -478,7 +478,8 @@
     "2126365899410341931",
     "2126366130105377156",
     "2126358533386190905",
-    "2126375863121834116"
+    "2126375863121834116",
+    "2126376500584702103"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1005,10 +1006,11 @@
     "f6f867c7f626f989",
     "cc8940a5f369fe32",
     "c1db6cf3281709e8",
-    "1444d53182dd29d7"
+    "1444d53182dd29d7",
+    "4d185cecd7b15f9e",
+    "7bb65ff44893cbc5"
   ],
   "recent_titles": [
-    "I can see a GPU training glut (which would be cyclical and is a scenario one should have modeled) but not an GPU Inference glut. The trick is knowing who has what.",
     "I was today years old when I realized so many people don't understand the difference between GPU training economics and inference economics.",
     "New Episode of Signal or Noise... From FOMO to Fear: The Upside of Downside w/ @PeterMallouk Have a happy Thanksgiving everyone! Vodio:",
     "We will benchmark Trainium4 too. Trainium3 is more comparable to Blackwell Ultra.",
@@ -1157,6 +1159,7 @@
     "Grok @Bot keeps getting better",
     "Global Central Bank Update: -South Korea hiked rates for the 3rd time this year, 25 bps move up to 3.25%. Policymakers signaled more hikes to come.",
     "Extremely satisfying to watch",
-    "BREAKING: The S&P 500 rises +1.6% to close at its highest level since November 18th. The index added +$1 trillion worth of market cap today."
+    "BREAKING: The S&P 500 rises +1.6% to close at its highest level since November 18th. The index added +$1 trillion worth of market cap today.",
+    "My observation is that giving money to “non-profits” rarely benefits the people and often results in hurting civilization by creating a self-perpetuating “cause of the day” bureaucracy that cares only about getting more money."
   ]
 }
