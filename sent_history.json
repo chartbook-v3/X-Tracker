@@ -492,7 +492,10 @@
     "2126412288320213496",
     "2126417919219286283",
     "2126415158033658224",
-    "2126426934431404067"
+    "2126426934431404067",
+    "2126421138461061563",
+    "2126424139175252276",
+    "2126426677500633388"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1041,12 +1044,14 @@
     "b1ea75757da44ecc",
     "d4d843515f9f9e78",
     "c60a8867d195c399",
-    "cc9a901b64286786"
+    "cc9a901b64286786",
+    "66487b5354d37329",
+    "708e32d3ba450f96",
+    "819d3ec6af962359",
+    "c78e6d9cb1d2d437",
+    "c058f47bc7de4c27"
   ],
   "recent_titles": [
-    "Alignment was the biggest jump. Astra scores 37.6%, 4x the previous best (Fable 5.2 at 9.3%). Much of the gain comes from the healthcare and insurance tasks, where Astra asks for permission before acting and doesn't leak personal data.",
-    "It's definitely not via a model graph compiler. The agent is the compiler now LMFAO",
-    "This is a neat use case for AI. Creating custom visuals vs. just searching for what may or may not be there.",
     "How would the Warsh Fed address market signals saying financial conditions are tightening, with an inflation picture that still looks uncomfortably hot?",
     "It’s impossible to spend two hours having more fun than watching Netflix’s new Rob Lowe doc. 10/10",
     "Before he became Fed chairman, Kevin Warsh spoke about the value of market signals and the risks of reacting too much to investors' whims.",
@@ -1193,6 +1198,9 @@
     "Perplexity is quietly turning into the workspace that business owners are using to build their brand and marketing in today’s world that’s all about fast tinkering and iteration.",
     "BREAKING: China’s non-monetary gold imports rose to a record $209.0 billion in the first 10 months of the year. This represents a record ~8% of China’s total imports over the same period.",
     "In that scenario, SpaceX market cap would be way higher",
-    "Major improvements land every week for Grok Bot"
+    "Major improvements land every week for Grok Bot",
+    "Nice little deck brewing for us to walk through with clients on our AI adoption studies with CIO/CTO/CSOs. So much meat in these cross tabs than one can get into in one read out.",
+    "Did we make it easier to upgrade to higher usage tiers?",
+    "Chicago Fed President Austan Goolsbee on the opaque web of AI financing: \"The oldest rule of financial accounting is nobody hides good news. So the fact that it's not transparent almost by definition means it's not good.\" Full transcript of his Nov."
   ]
 }
