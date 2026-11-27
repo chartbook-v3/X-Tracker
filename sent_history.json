@@ -501,7 +501,9 @@
     "2126425607185834037",
     "2126438008748384711",
     "2126438463520350588",
-    "2126426068466749513"
+    "2126426068466749513",
+    "2126412600816943385",
+    "2126425604614681050"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1063,10 +1065,11 @@
     "ab8466283103c52b",
     "85fa55af8f96b3cb",
     "5f4518a30b4fdbb2",
-    "3e5f5f4ef2e51c7d"
+    "3e5f5f4ef2e51c7d",
+    "8a08f783275216b8",
+    "a9ba2fcabf199a57"
   ],
   "recent_titles": [
-    "ALERT🚨🚨: TokenSpeed pushes Muse Spark Open on @AIatAMD MI355X out to 645 tok/s/user P90 interactivity on the official SemiAnalysis InferenceX AgentX benchmark. At the throughput end, it reaches 48.9K total tok/s per GPU at conc 40 on 4× MI355X.",
     "excited to work with Fujitsu on cyberdefense",
     "Model names and numbers have never been less useful in determining ability levels.",
     "Yeah this is pretty great",
@@ -1215,6 +1218,7 @@
     "The same server can also generate images and videos with any model on OpenRouter, including Seedance: Get started:",
     "Give Grok Bot your hardest problems",
     "Give each Bot a specific job, just like people in a company",
-    "In an early stage startup you're not optimizing for cost when hiring."
+    "In an early stage startup you're not optimizing for cost when hiring.",
+    "Tip: you can use Neon to \"deslop\" any AI message inside Claude, ChatGPT, or any other MCP client: 1. Add to your client, and follow the suggested login instruction to add the OpenRouter MCP 2."
   ]
 }
