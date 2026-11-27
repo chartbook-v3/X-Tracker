@@ -486,7 +486,8 @@
     "2126397498071670827",
     "2126401401831985156",
     "2126404709628129388",
-    "2126399808550457389"
+    "2126399808550457389",
+    "2126413886576590925"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1026,10 +1027,11 @@
     "4acaf65c472a9bf6",
     "afee6aaca36b6eed",
     "c4640a50dc5aa688",
-    "9dbdfadb2026c35e"
+    "9dbdfadb2026c35e",
+    "29daba7130951f33",
+    "7155f4e11698b898"
   ],
   "recent_titles": [
-    "GPT-6.2 Astra debuts at the top of the GDPx leaderboard scoring 19.3%, ahead of Claude Fable 5.2 at 16.4%. Gemini 4 Neon, the model of the moment, lands 6th at 10.1%. (1/9)🧵",
     "The gains are concentrated in the science-heavy domains. Astra beats the previous best model by 19.4% in materials science and 8.3% in RSI. (2/9)",
     "Gemini 4 Neon is spiky. It sets new highs in biology (30.8% vs Fable 5.2's 28.2%) and in legal partial credit (41.3%), and is second only to Astra in materials science.",
     "BREAKING: US M2 money supply surged +$119 billion in October, to a record $23.53 trillion. YoY, M2 growth accelerated to +5.9%, its highest since May 2022. This also marks its 32nd consecutive month of YoY growth.",
@@ -1178,6 +1180,7 @@
     "Every model has its strengths and weaknesses. Grok @Bot aims to use whichever one does the best job for the task you give it! Neon is looking particularly promising, but Opus is also excellent in most cases.",
     "Banking conditions are tightening in the US: A net 30% of leaders from the banking sector and lending institutions across the Fed's 8th District reported lower loan demand in the current quarter, according to the Fed Economic Conditions Survey.",
     "This will be fully automated and sped up to be",
-    "Historians will recall Google's growth was directly correlated to new internet users coming online globally each year (mostly driven by mobile internet users growing globally)."
+    "Historians will recall Google's growth was directly correlated to new internet users coming online globally each year (mostly driven by mobile internet users growing globally).",
+    "When using Grok Bots, it is important to create Bots with specialized roles, just like a human company. You can then have a manager bot oversee and coordinate their work."
   ]
 }
