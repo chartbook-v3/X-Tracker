@@ -457,7 +457,8 @@
     "2126099761803760093",
     "2126044241709412791",
     "2126206413068480876",
-    "2126216169623535632"
+    "2126216169623535632",
+    "2126228720918687794"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -948,10 +949,11 @@
     "b9f9b23b6d524e22",
     "154eb7d0573258d3",
     "725ce146d716b55b",
-    "8678114c4f104a98"
+    "8678114c4f104a98",
+    "15b9d49fb192ed23",
+    "8a163a7424579767"
   ],
   "recent_titles": [
-    "We’re now testing Private Inference, our latest offering as part of OpenAI Private Intelligence, with a small group of customers.",
     "I don't think I'd heard the word \"hyperstitioning\" before, but it's a good one.",
     "Financial research is best done using Multiagent on Perplexity Computer. Fable orchestrates Neon, Opus and Sol to get the job done.",
     "It's only been two weeks? I've made 194 commits to my open source projects that were co-authored by Fable 5.2",
@@ -1100,6 +1102,7 @@
     "Open research and open source accelerate progress. The proprietary AI shops are black holes that suck everyone else's techniques without ever giving back They suck. (looking at you Anthropic and OpenAI 👀).",
     "It’s meant for business and enterprise use cases, yes",
     "Korean media report that MediaTek’s name has come up as a potential partner for the SerDes and custom HBM base die in Google’s TPU v10. The TPU v10 will reportedly pack 512 GB of HBM5.",
-    "Yup, a breakthrough in encryption has likely happened"
+    "Yup, a breakthrough in encryption has likely happened",
+    "In its base case, TrendForce expects conventional DRAM contract prices to rise at a progressively slower pace throughout 2027. Prices could level off in 2H27 before starting to decline in 2028. The base case reflects several demand-side factors."
   ]
 }
