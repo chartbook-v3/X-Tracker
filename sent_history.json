@@ -477,7 +477,8 @@
     "2126354952482426910",
     "2126365899410341931",
     "2126366130105377156",
-    "2126358533386190905"
+    "2126358533386190905",
+    "2126375863121834116"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1002,10 +1003,11 @@
     "ad71aacb9eaa294b",
     "3b29040fe500a4cc",
     "f6f867c7f626f989",
-    "cc8940a5f369fe32"
+    "cc8940a5f369fe32",
+    "c1db6cf3281709e8",
+    "1444d53182dd29d7"
   ],
   "recent_titles": [
-    "Interpret as you may.",
     "I can see a GPU training glut (which would be cyclical and is a scenario one should have modeled) but not an GPU Inference glut. The trick is knowing who has what.",
     "I was today years old when I realized so many people don't understand the difference between GPU training economics and inference economics.",
     "New Episode of Signal or Noise... From FOMO to Fear: The Upside of Downside w/ @PeterMallouk Have a happy Thanksgiving everyone! Vodio:",
@@ -1154,6 +1156,7 @@
     "It could just be me but I do not sense there is enough healthy fear of the cyber security threat looming and how this is both a frontier model and compute opportunity to solve.",
     "Grok @Bot keeps getting better",
     "Global Central Bank Update: -South Korea hiked rates for the 3rd time this year, 25 bps move up to 3.25%. Policymakers signaled more hikes to come.",
-    "Extremely satisfying to watch"
+    "Extremely satisfying to watch",
+    "BREAKING: The S&P 500 rises +1.6% to close at its highest level since November 18th. The index added +$1 trillion worth of market cap today."
   ]
 }
