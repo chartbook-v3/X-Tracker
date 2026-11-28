@@ -524,7 +524,8 @@
     "2126514496781025710",
     "2126176806885884184",
     "2126511824388714587",
-    "2126515518274404508"
+    "2126515518274404508",
+    "2126524058565214495"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1119,10 +1120,11 @@
     "64056f526ea0611a",
     "76ee66a19d3efb4e",
     "e50c99718f54ebbe",
-    "753326333a9a5e6e"
+    "753326333a9a5e6e",
+    "df7cd274b480816d",
+    "9ac758819624bab6"
   ],
   "recent_titles": [
-    "Do you do any of the things this benchmark measures besides software engineering where it doesn't do that good on this benchmark.",
     "This comes as no surprise to existing Trainium3 customers like Anthropic, which has deployed Trainium at massive scale for Claude production inference, along with other workloads. (3/5)",
     "That most people here don't do those tasks, only Swe, and hence they hate it?",
     "Hard to believe this finally happened",
@@ -1271,6 +1273,7 @@
     "Outside of whatever is happening in cryptography, I suspect we are going to see more cases where AI progress in seemingly abstract fields has implications for vital technologies that most people did not realize are related.",
     "Teammates are awesome. Onboard whatever roles you feel bottlenecked on in your life and work. And orchestrate them or have a chief of staff teammate orchestrate other teammates for you.",
     "SALP: “ASML’s cash flow will dry up in just a few years.” “Windows and Office will lose out to better products.” “ASI will wipe out Apple’s moat. Users will be able to bypass App Store fees, too.” WHAT DID HE SEE?",
-    "Maybe there are some problematic people somewhere at Anthropic, but the ones I know are not evil"
+    "Maybe there are some problematic people somewhere at Anthropic, but the ones I know are not evil",
+    "From Nikkei’s interview with Micron Japan - In 2026, customers are getting only about half the DRAM they’re asking for. - Micron’s 2027 supply is reportedly already sold out. - Micron expects the DRAM market to be even tighter in 2027 and 2028 than in 2026. -"
   ]
 }
