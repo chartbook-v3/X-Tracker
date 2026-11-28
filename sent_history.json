@@ -505,7 +505,8 @@
     "2126412600816943385",
     "2126425604614681050",
     "2126439722746785869",
-    "2126453063091110355"
+    "2126453063091110355",
+    "2126462588766527593"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1072,10 +1073,11 @@
     "a9ba2fcabf199a57",
     "a1468a8957ba2679",
     "2d307cdbb7809e1f",
-    "6eb1baeeac97ef54"
+    "6eb1baeeac97ef54",
+    "b7e9a085726478bf",
+    "1c0300730b823b27"
   ],
   "recent_titles": [
-    "Yeah this is pretty great",
     "We also tested an abliterated Kimi K3.1 Pro post-trained to stop refusing offensive security work. It scored 14.8% on our cybersecurity tasks vs 18.5% for the original.",
     "Neon has doubled day over day usage on Perplexity (no default model routing), doing 100B+ tokens in a single day. It’s rare to see such an exponential growth for a model.",
     "South Korean media report that the government is considering at least doubling the size of its stock market stabilization fund, from ₩10.7 trillion to ₩20 trillion or more.",
@@ -1224,6 +1226,7 @@
     "In an early stage startup you're not optimizing for cost when hiring.",
     "Tip: you can use Neon to \"deslop\" any AI message inside Claude, ChatGPT, or any other MCP client: 1. Add to your client, and follow the suggested login instruction to add the OpenRouter MCP 2.",
     "A future where people build whatever they want for themselves is exciting and worth creating. Perplexity is going to do that.",
-    "The majority of Americans are not saving enough for their retirement: Just 14% of participants in Vanguard-managed 401(k) plans contributed the maximum to their plans in 2025."
+    "The majority of Americans are not saving enough for their retirement: Just 14% of participants in Vanguard-managed 401(k) plans contributed the maximum to their plans in 2025.",
+    "Partnerships are usually a waste of time for startups. Usually the only kinds you want are the two degenerate cases: where you buy someone's product, or they buy yours."
   ]
 }
