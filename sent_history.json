@@ -507,7 +507,8 @@
     "2126439722746785869",
     "2126453063091110355",
     "2126462588766527593",
-    "2126465135434748034"
+    "2126465135434748034",
+    "2126474822700208225"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1078,10 +1079,11 @@
     "b7e9a085726478bf",
     "1c0300730b823b27",
     "3bab0f3c86b2a82e",
-    "7db16ddd0e52b906"
+    "7db16ddd0e52b906",
+    "e422c9fc028c3e92",
+    "db180e4afdb5195a"
   ],
   "recent_titles": [
-    "Neon has doubled day over day usage on Perplexity (no default model routing), doing 100B+ tokens in a single day. It’s rare to see such an exponential growth for a model.",
     "South Korean media report that the government is considering at least doubling the size of its stock market stabilization fund, from ₩10.7 trillion to ₩20 trillion or more.",
     "Private Inference — confidential computing, with strict controls over prompts and responses while they're being processed by a model, is now in testing:",
     "We tried it on 2026 Polymarket questions with GLM-5.3 Flash. Trained on the live web, about 90% of training groups taught the model nothing because it could just look up the answer.",
@@ -1230,6 +1232,7 @@
     "A future where people build whatever they want for themselves is exciting and worth creating. Perplexity is going to do that.",
     "The majority of Americans are not saving enough for their retirement: Just 14% of participants in Vanguard-managed 401(k) plans contributed the maximum to their plans in 2025.",
     "Partnerships are usually a waste of time for startups. Usually the only kinds you want are the two degenerate cases: where you buy someone's product, or they buy yours.",
-    "It would be useful for your AI agent/cloud project to get access to a better cloud machine for a bit when needed (for more tokens)."
+    "It would be useful for your AI agent/cloud project to get access to a better cloud machine for a bit when needed (for more tokens).",
+    "Not a good day for French economic news. First, data confirmed the economy contracted again last quarter, meeting the definition of a recession. Now this... #economy #markets #france @lemondefr"
   ]
 }
