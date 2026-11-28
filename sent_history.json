@@ -527,7 +527,9 @@
     "2126515518274404508",
     "2126524058565214495",
     "2126529117466345619",
-    "2126538472508801049"
+    "2126538472508801049",
+    "2126383370091556884",
+    "2126539857581511160"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1127,11 +1129,12 @@
     "9ac758819624bab6",
     "b080c46fbc7f5124",
     "635dc4e087d0d768",
-    "be8a0b54fa74092e"
+    "be8a0b54fa74092e",
+    "a312450ad6cb8350",
+    "2d7e2115c8409a71",
+    "a2534dd3ce9521c3"
   ],
   "recent_titles": [
-    "Hard to believe this finally happened",
-    "😂 Robots and SI will solve healthcare",
     "It's not on the cost pareto frontier in any ways. It's more expensive and lower performing than other models in our testing.",
     "We run it ourselves. Caching just changes cost and we spoke about caching issues and how those affect costs but also being fixed rn. Argon and Carbon are bigger models than neon so that could be part of it.",
     "Community Notes just saved a lot of guys from thinking their wiener is too small",
@@ -1279,6 +1282,8 @@
     "Maybe there are some problematic people somewhere at Anthropic, but the ones I know are not evil",
     "From Nikkei’s interview with Micron Japan - In 2026, customers are getting only about half the DRAM they’re asking for. - Micron’s 2027 supply is reportedly already sold out. - Micron expects the DRAM market to be even tighter in 2027 and 2028 than in 2026. -",
     "Automations by Perplexity Teammates for external users have grown 27x since launch day three weeks ago, 9x in the last 10 days alone. Just during Thanksgiving, we saw more automation runs than human messages.",
-    "You can actually do this"
+    "You can actually do this",
+    "New Antigravity release the day after Thanksgiving with many improvements! We’ve further reduced unnecessary approvals in Auto mode by 15% and closed the loop for developers with native GitHub integrations.",
+    "Still hard to believe that this actually happened"
   ]
 }
