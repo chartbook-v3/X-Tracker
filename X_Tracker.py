@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 64곳 X(트위터) 24시간 실시간 추적 봇
+X-Tracker - 글로벌 빅테크·AI·반도체·매크로·네오클라우드 주요 인사 및 공식 계정 65곳 X(트위터) 24시간 실시간 추적 봇
 - 출력 대상: 텔레그램 채널 (@chartbookx)
 - 핵심 개선 사항:
-  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 31개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
+  1) 고빈도 핵심 인물(일론 머스크 등) 단독 쿼리 + 나머지 소그룹 32개 분할 (저빈도 CEO·공식 그룹은 24h 윈도우 적용)
   2) 키워드 필터 전면 폐지(누락 방지) + 최소 위생 필터만 유지 (빈 리포스트 껍데기·초단문·짧은 답글·스포츠/연예 노이즈만 차단)
   3) X Article(장문 아티클) 블록 추출 지원 + URL 단독 입력 번역 환각 차단 가드레일
   4) X Snowflake 64비트 Status ID 기반 100% 정확한 UTC 발행시각 및 원작성자 핸들 검증
@@ -94,7 +94,7 @@ X_VIP_PROFILES = {
     "charliebilello": "X ｜ 찰리 빌렐로(크리에이티브플래닝 수석시장전략가)",
     "kobeissiletter": "X ｜ 코베이시 레터(애덤 코베이시 편집장)",
     "gavinsbaker": "X ｜ 개빈 베이커(아트레이디스 경영총괄 CIO)",
-    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (10명)
+    # 3. AI 연구자 · 빌더 · 뉴스 큐레이터 (11명)
     "karpathy": "X ｜ 안드레이 카파시(앤트로픽 사전학습 연구원)",
     "jeffdean": "X ｜ 제프 딘(디스커버리 루프 공동창립자·CEO)",
     "ilyasut": "X ｜ 일리야 수츠케버(SSI 공동창립자·CEO)",
@@ -105,6 +105,7 @@ X_VIP_PROFILES = {
     "rowancheung": "X ｜ 로완 청(더 런다운 AI 창립자·CEO)",
     "simonw": "X ｜ 사이먼 윌리슨(데이터세트 창작자·오픈소스 개발자)",
     "_akhaliq": "X ｜ 아크(허깅페이스 연구원·AI 논문 큐레이터)",
+    "_mohansolo": "X ｜ 바룬 모한(구글 딥마인드·안티그래비티 리드)",
     # 4. 실리콘밸리 VC · 창업가 · 테크 리뷰어 (7명)
     "pmarca": "X ｜ 마크 안드레센(a16z 공동창립자·연준 자문위원)",
     "paulg": "X ｜ 폴 그레이엄(와이콤비네이터 공동창립자)",
@@ -156,6 +157,7 @@ VIP_SHORT_ALLOW_HANDLES = {
     "zephyr_z9",
     "googleaistudio",
     "mustafasuleyman",
+    "_mohansolo",
     "jeffdean",
     "ilyasut",
     "jeffbezos",
@@ -203,12 +205,13 @@ LOW_FREQ_GROUPS = {
     "X-AI-Res2",
     "X-AI-Res3",
     "X-AI-Res4",
+    "X-AI-Res5",
     "X-VC1",
     "X-VC2",
     "X-VC3",
 }
 
-# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 28개 그룹(when:1d) = 총 31개 정밀 분할 쿼리
+# 고빈도 3개 그룹(when:2h) + 저/중빈도 및 색인 지연 방어 29개 그룹(when:1d) = 총 32개 정밀 분할 쿼리
 X_QUERY_GROUPS = [
     # 고빈도 실시간 VIP 단독 쿼리 (when:2h)
     ("X-ElonMusk", ["elonmusk"]),
@@ -246,6 +249,7 @@ X_QUERY_GROUPS = [
     ("X-AI-Res2", ["emollick", "rowancheung"]),
     ("X-AI-Res3", ["simonw", "_akhaliq"]),
     ("X-AI-Res4", ["JeffDean", "ilyasut"]),
+    ("X-AI-Res5", ["_mohansolo"]),
     # 실리콘밸리 VC 소그룹 (when:1d)
     ("X-VC1", ["pmarca", "paulg", "garrytan"]),
     ("X-VC2", ["eladgil", "MKBHD"]),
@@ -696,12 +700,25 @@ def format_message(profile_label: str | tuple[str, str], text_ko: str, x_url: st
     else:
         hdr, bio = profile_label, ""
     safe_src = html.escape(hdr, quote=False)
-    safe_body = html.escape(text_ko, quote=False)
     safe_url = html.escape(x_url, quote=True)
+    prefix = f'<a href="{safe_url}"><b>{safe_src}</b></a>\n'
     if bio:
-        safe_bio = html.escape(bio, quote=False)
-        return f'<a href="{safe_url}"><b>{safe_src}</b></a>\n{safe_bio}\n\n{safe_body}'
-    return f'<a href="{safe_url}"><b>{safe_src}</b></a>\n\n{safe_body}'
+        prefix += f"{html.escape(bio, quote=False)}\n\n"
+    else:
+        prefix += "\n"
+
+    # 텔레그램 4096자 상한 방어: HTML 이스케이프 확장(&, <, >)까지 포함해 안전 절단
+    max_body_len = max(200, 4050 - len(prefix))
+    safe_body = html.escape(text_ko, quote=False)
+    if len(safe_body) > max_body_len:
+        suffix = "\n\n...(이하 전문은 상단 원문 링크 참고)"
+        cut = safe_body[: max_body_len - len(suffix)]
+        # HTML 엔티티(&amp;, &lt;, &gt;) 중간 절단 방지
+        amp_idx = cut.rfind("&")
+        if amp_idx != -1 and ";" not in cut[amp_idx:]:
+            cut = cut[:amp_idx]
+        safe_body = cut.rstrip() + suffix
+    return prefix + safe_body
 
 
 def send_telegram(profile_label: str | tuple[str, str], text_ko: str, x_url: str, dry_run: bool = False) -> bool:
@@ -921,34 +938,39 @@ def git_push_history_in_actions(local_hist: dict | None = None) -> None:
     try:
         subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=False)
         subprocess.run(["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"], check=False)
-        subprocess.run(["git", "fetch", "origin", "main"], check=False)
+        cur_local = local_hist if local_hist is not None else load_history()
 
-        # origin/main 최신 sent_history.json과 로컬 이력을 합집합 병합해 충돌 및 누락 방지
-        remote_show = subprocess.run(
-            ["git", "show", "origin/main:sent_history.json"],
-            check=False,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-        )
-        if remote_show.returncode == 0 and remote_show.stdout.strip():
-            try:
-                remote_hist = json.loads(remote_show.stdout)
-                cur_local = local_hist if local_hist is not None else load_history()
-                merged = _merge_history_dicts(remote_hist, cur_local)
-                save_history(merged)
-            except Exception:
-                pass
+        for attempt in range(2):
+            subprocess.run(["git", "fetch", "origin", "main"], check=False)
+            remote_show = subprocess.run(
+                ["git", "show", "origin/main:sent_history.json"],
+                check=False,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+            )
+            if remote_show.returncode == 0 and remote_show.stdout.strip():
+                try:
+                    remote_hist = json.loads(remote_show.stdout)
+                    merged = _merge_history_dicts(remote_hist, cur_local)
+                    save_history(merged)
+                except Exception:
+                    pass
 
-        subprocess.run(["git", "add", "sent_history.json"], check=False)
-        diff_res = subprocess.run(["git", "diff", "--staged", "--quiet"], check=False)
-        if diff_res.returncode != 0:
+            subprocess.run(["git", "add", "sent_history.json"], check=False)
+            diff_res = subprocess.run(["git", "diff", "--staged", "--quiet"], check=False)
+            if diff_res.returncode == 0:
+                return
             subprocess.run(["git", "commit", "-m", "chore: update sent_history.json [skip ci]"], check=False)
             pull_res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=False)
             if pull_res.returncode != 0:
                 subprocess.run(["git", "rebase", "--abort"], check=False)
+                subprocess.run(["git", "reset", "--hard", "origin/main"], check=False)
+                continue
+            push_res = subprocess.run(["git", "push"], check=False)
+            if push_res.returncode == 0:
                 return
-            subprocess.run(["git", "push"], check=False)
+            subprocess.run(["git", "reset", "--hard", "origin/main"], check=False)
     except Exception as e:
         print(f"[WARN] Git history push error: {e}")
 
