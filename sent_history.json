@@ -541,7 +541,8 @@
     "2126494655025942538",
     "2126495819477991508",
     "2126563155157344530",
-    "2126572259896623544"
+    "2126572259896623544",
+    "2126569877221621795"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1162,10 +1163,10 @@
     "c86504df102dc3c2",
     "157518efa9b58820",
     "06496ab17701c54c",
-    "87e94a859e07d3c3"
+    "87e94a859e07d3c3",
+    "a9ade74eec6b3ad8"
   ],
   "recent_titles": [
-    "Reuters reports that the launch of Zhipu AI’s 3-trillion-parameter GLM-5.5 could slip to Q1 2027 or later, with OpenAI and Anthropic’s crackdown on model distillation contributing to the delay.",
     "•DRAM contract price outlook revised down for 1Q/2Q/3Q/4Q27 → Now +6%/+3%/0%/0% QoQ → vs. prior +10%/+7%/+5%/+3% 👀",
     "Dell note is up in CS Atlas.",
     "I finally get why Elon’s been taking shots at Samsung. Musk reportedly offered to sign a long-term deal to buy chips from Samsung Electronics. Chairman Jay Y.",
@@ -1314,6 +1315,7 @@
     "It's not a crime. But it deserves commercial oblivion.",
     "1. Not make open source AI illegal because of some imaginary risk. 2.",
     "It is very useful",
-    "The rental price for large, coherent blocks of compute configured for high-bandwidth training is increasing, sometimes very significantly, but the price for small amounts of compute (below ~5k GPUs) is decreasing."
+    "The rental price for large, coherent blocks of compute configured for high-bandwidth training is increasing, sometimes very significantly, but the price for small amounts of compute (below ~5k GPUs) is decreasing.",
+    "Not sure who will buy more, but Google has expressed interest in renting more compute from us"
   ]
 }
