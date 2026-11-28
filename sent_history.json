@@ -520,7 +520,8 @@
     "2126481900277755941",
     "2126507616243437898",
     "2126504475208864154",
-    "2126513022080631259"
+    "2126513022080631259",
+    "2126514496781025710"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1110,10 +1111,10 @@
     "35d67fe984aac546",
     "5cf7855c10f329c1",
     "0b5c3bb9f5c29fe0",
-    "ddff15615ca27390"
+    "ddff15615ca27390",
+    "ce30f349972cac5a"
   ],
   "recent_titles": [
-    "Teammates are awesome for security monitoring!",
     "towards more deeply understanding the universe",
     "No we cover the future domains of growth primarily. Software engineering is 1 domain",
     "Fair. Idk what slow is just many slack agents in parallel in different threads. I never run out of threads to move forward in",
@@ -1262,6 +1263,7 @@
     "Gemini 4 Neon one-shots a novel RPG rulebook that is nicely laid-out and illustrated, and with a unique game mechanic... ...but it is about drowned bell towers and echoes and an ancient cataclysm and strange music.",
     "Interesting, looks like Anthropic has a new attention mechanism",
     "You aren’t being offered per token pricing?",
-    "The ability to point at a spot on the screen in reality view and have the car go there is coming out in a point release in a week or two"
+    "The ability to point at a spot on the screen in reality view and have the car go there is coming out in a point release in a week or two",
+    "Outside of whatever is happening in cryptography, I suspect we are going to see more cases where AI progress in seemingly abstract fields has implications for vital technologies that most people did not realize are related."
   ]
 }
