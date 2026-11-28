@@ -542,7 +542,8 @@
     "2126495819477991508",
     "2126563155157344530",
     "2126572259896623544",
-    "2126569877221621795"
+    "2126569877221621795",
+    "2126573369726578946"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1164,10 +1165,11 @@
     "157518efa9b58820",
     "06496ab17701c54c",
     "87e94a859e07d3c3",
-    "a9ade74eec6b3ad8"
+    "a9ade74eec6b3ad8",
+    "023e080579e8c1c4",
+    "1a6d04d518644f20"
   ],
   "recent_titles": [
-    "•DRAM contract price outlook revised down for 1Q/2Q/3Q/4Q27 → Now +6%/+3%/0%/0% QoQ → vs. prior +10%/+7%/+5%/+3% 👀",
     "Dell note is up in CS Atlas.",
     "I finally get why Elon’s been taking shots at Samsung. Musk reportedly offered to sign a long-term deal to buy chips from Samsung Electronics. Chairman Jay Y.",
     "Wishing a Happy Thanksgiving to all who celebrate. May your day be filled with warmth, gratitude, and good health for you and your family.",
@@ -1316,6 +1318,7 @@
     "1. Not make open source AI illegal because of some imaginary risk. 2.",
     "It is very useful",
     "The rental price for large, coherent blocks of compute configured for high-bandwidth training is increasing, sometimes very significantly, but the price for small amounts of compute (below ~5k GPUs) is decreasing.",
-    "Not sure who will buy more, but Google has expressed interest in renting more compute from us"
+    "Not sure who will buy more, but Google has expressed interest in renting more compute from us",
+    "People have no idea what happens when a super capable hardware company enters an arena of slowpokes. Hyposcalers would be a more accurate description."
   ]
 }
