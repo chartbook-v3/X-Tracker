@@ -509,7 +509,8 @@
     "2126462588766527593",
     "2126465135434748034",
     "2126474822700208225",
-    "2126474787497066621"
+    "2126474787497066621",
+    "2126479727066272164"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1084,10 +1085,10 @@
     "e422c9fc028c3e92",
     "db180e4afdb5195a",
     "7bad38b525d1303e",
-    "902b292f81a7f7ab"
+    "902b292f81a7f7ab",
+    "124f57fe676a62c6"
   ],
   "recent_titles": [
-    "Private Inference — confidential computing, with strict controls over prompts and responses while they're being processed by a model, is now in testing:",
     "We tried it on 2026 Polymarket questions with GLM-5.3 Flash. Trained on the live web, about 90% of training groups taught the model nothing because it could just look up the answer.",
     "A publication date alone doesn't prove that the cutoff held. For example, an article from before an election can be updated later to name the winner.",
     "We will take a look, thanks for flagging",
@@ -1236,6 +1237,7 @@
     "Partnerships are usually a waste of time for startups. Usually the only kinds you want are the two degenerate cases: where you buy someone's product, or they buy yours.",
     "It would be useful for your AI agent/cloud project to get access to a better cloud machine for a bit when needed (for more tokens).",
     "Not a good day for French economic news. First, data confirmed the economy contracted again last quarter, meeting the definition of a recession. Now this... #economy #markets #france @lemondefr",
-    "?? You can find X posts on the Google search or Grok Bot. Our internal search function still sucks, but AI will fix it."
+    "?? You can find X posts on the Google search or Grok Bot. Our internal search function still sucks, but AI will fix it.",
+    "Extremely troubling"
   ]
 }
