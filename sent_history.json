@@ -512,7 +512,8 @@
     "2126474787497066621",
     "2126479727066272164",
     "2126478403876590008",
-    "2126481890781892772"
+    "2126481890781892772",
+    "2126483722639925546"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1091,10 +1092,10 @@
     "124f57fe676a62c6",
     "38c54656ed65b884",
     "709730327339fecb",
-    "125b0804e50ad199"
+    "125b0804e50ad199",
+    "510ba06ace16a9f1"
   ],
   "recent_titles": [
-    "We will take a look, thanks for flagging",
     "Basically, you need the internet frozen on a specific date. Every time we crawl a page, we keep a dated copy. Set snapshot_as_of, and search and page reads only see copies from that date or earlier.",
     "We compared Time Machine and Exa Snapshot on three sets of 1,000 queries each: a random sample of Time Machine queries, news queries, and queries from prediction-market research.",
     "Microsoft is such an interesting case.",
@@ -1243,6 +1244,7 @@
     "?? You can find X posts on the Google search or Grok Bot. Our internal search function still sucks, but AI will fix it.",
     "Extremely troubling",
     "As people pointed out in the comments, Gemini does this!",
-    "SALP has some pretty eye-popping projections for Anthropic... Here’s what they wrote in their Q3 letter."
+    "SALP has some pretty eye-popping projections for Anthropic... Here’s what they wrote in their Q3 letter.",
+    "So Leopold thinks Anthropic alone could end 2027 with more than $640 billion in ARR. He also thinks OpenAI and Anthropic are likely to top $1 trillion in combined ARR by then."
   ]
 }
