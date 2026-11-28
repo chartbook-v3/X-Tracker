@@ -560,7 +560,8 @@
     "2126702405157060997",
     "2126663227782115770",
     "2126706571535433753",
-    "2126695666068169000"
+    "2126695666068169000",
+    "2126703217396580845"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1206,10 +1207,11 @@
     "40ca17d795a476e1",
     "b5e10bfb5c671f88",
     "ade458ff0599cd38",
-    "da54bfb1f248a4d5"
+    "da54bfb1f248a4d5",
+    "67c95f33cc9e2d5e",
+    "32162d3bbebb2dcd"
   ],
   "recent_titles": [
-    "For all those people who keep predicting we're overbuilding chips / we aren't seeing jevon's paradox etc. Things are just getting started.",
     "A share of SpaceX for every child in America. Another share coming next year directly from Elon. This is great for the country imo.",
     "Super thoughtful essay on AI that begins and ends with Tocqueville after detours through Joel Mokyr and Iain Banks.",
     "BREAKING: US new home sales jumped +14.2% MoM in October, to an annualized rate of 701,000 units, the highest since December 2025, crushing expectations of a -3.8% decline.",
@@ -1358,6 +1360,7 @@
     "US semiconductor stocks are seeing nearly unprecedented volatility: On Tuesday, the Semiconductor Index, SOX, underperformed the Nasdaq 100 by 5.9 percentage points, its 4th-biggest daily underperformance on record.",
     "SN l, Simulateur Neuronal, which was eventually open-source under the name Lush",
     "Bitcoin (-32%) and Gold (-16%) are the two worst performing major assets so far in 2026. This is something we haven't seen before in any calendar year.",
-    "He doesn't really elaborate much on the source of demand, which will cause such a huge increase in compute prices He just alludes to persistent multi-agent systems"
+    "He doesn't really elaborate much on the source of demand, which will cause such a huge increase in compute prices He just alludes to persistent multi-agent systems",
+    "\"So we're seeing on Shopify about a 3.3x increase in agentic sourced sales year over year.\" So... still nearly 0"
   ]
 }
