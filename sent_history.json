@@ -535,7 +535,8 @@
     "2126545857373741563",
     "2126564206702899646",
     "2126565291165635039",
-    "2126493497473536154"
+    "2126493497473536154",
+    "2126515129005363529"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1146,10 +1147,11 @@
     "a06cda24c7af0d85",
     "cd575ea7564a79bb",
     "2bef12d89efd220b",
-    "1cd09d4c125062a8"
+    "1cd09d4c125062a8",
+    "6b22b34553b12331",
+    "4a99faba30c5b6b2"
   ],
   "recent_titles": [
-    "BREAKING NEWS🚨: 7 months ago, NVIDIA’s former and current CEO, Jensen, said that TPU & Trainium would never come to InferenceX to prove their performance claims.",
     "If SpaceX succeeds in making life multiplanetary and harnessing even a millionth of the Sun’s energy, it will be worth about a million times the current global economy.",
     "Overall, GPT-6.2 is clearly a very smart model. OpenAI just needs to make it more pleasant to work with. Gemini 4 Hydrogen is still running, so expect another update soon.",
     "We will try to get the foster kids shares anyway",
@@ -1298,6 +1300,7 @@
     "Maybe there is some merit to envy minimization",
     "A note on demos: AI models are impressive when talking about AI.",
     "Given their extreme decline, can it really be said that they are actually aware of the situation?",
-    "They're scanning them. Which is not a bad thing."
+    "They're scanning them. Which is not a bad thing.",
+    "Fair, we should be aware of quota refresh and resume. Good point! Also, yeah feel free to ping me all your complaints 🙂"
   ]
 }
