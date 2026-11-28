@@ -529,7 +529,8 @@
     "2126529117466345619",
     "2126538472508801049",
     "2126383370091556884",
-    "2126539857581511160"
+    "2126539857581511160",
+    "2126390754922955210"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1132,10 +1133,10 @@
     "be8a0b54fa74092e",
     "a312450ad6cb8350",
     "2d7e2115c8409a71",
-    "a2534dd3ce9521c3"
+    "a2534dd3ce9521c3",
+    "5c2ac431f8e11568"
   ],
   "recent_titles": [
-    "It's not on the cost pareto frontier in any ways. It's more expensive and lower performing than other models in our testing.",
     "We run it ourselves. Caching just changes cost and we spoke about caching issues and how those affect costs but also being fixed rn. Argon and Carbon are bigger models than neon so that could be part of it.",
     "Community Notes just saved a lot of guys from thinking their wiener is too small",
     "BREAKING: Elon Musk says SpaceX, $SPCX, will be matching his 1 share donation to every child in America.",
@@ -1284,6 +1285,7 @@
     "Automations by Perplexity Teammates for external users have grown 27x since launch day three weeks ago, 9x in the last 10 days alone. Just during Thanksgiving, we saw more automation runs than human messages.",
     "You can actually do this",
     "New Antigravity release the day after Thanksgiving with many improvements! We’ve further reduced unnecessary approvals in Auto mode by 15% and closed the loop for developers with native GitHub integrations.",
-    "Still hard to believe that this actually happened"
+    "Still hard to believe that this actually happened",
+    "Native browser use in app works (has been out for a couple weeks), computer use is coming!"
   ]
 }
