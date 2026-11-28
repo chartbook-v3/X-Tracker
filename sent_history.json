@@ -510,7 +510,8 @@
     "2126465135434748034",
     "2126474822700208225",
     "2126474787497066621",
-    "2126479727066272164"
+    "2126479727066272164",
+    "2126478403876590008"
   ],
   "title_hashes": [
     "ed2a5476377a8550",
@@ -1086,10 +1087,10 @@
     "db180e4afdb5195a",
     "7bad38b525d1303e",
     "902b292f81a7f7ab",
-    "124f57fe676a62c6"
+    "124f57fe676a62c6",
+    "38c54656ed65b884"
   ],
   "recent_titles": [
-    "We tried it on 2026 Polymarket questions with GLM-5.3 Flash. Trained on the live web, about 90% of training groups taught the model nothing because it could just look up the answer.",
     "A publication date alone doesn't prove that the cutoff held. For example, an article from before an election can be updated later to name the winner.",
     "We will take a look, thanks for flagging",
     "Basically, you need the internet frozen on a specific date. Every time we crawl a page, we keep a dated copy. Set snapshot_as_of, and search and page reads only see copies from that date or earlier.",
@@ -1238,6 +1239,7 @@
     "It would be useful for your AI agent/cloud project to get access to a better cloud machine for a bit when needed (for more tokens).",
     "Not a good day for French economic news. First, data confirmed the economy contracted again last quarter, meeting the definition of a recession. Now this... #economy #markets #france @lemondefr",
     "?? You can find X posts on the Google search or Grok Bot. Our internal search function still sucks, but AI will fix it.",
-    "Extremely troubling"
+    "Extremely troubling",
+    "As people pointed out in the comments, Gemini does this!"
   ]
 }
